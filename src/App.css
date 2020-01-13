@@ -179,6 +179,12 @@ h4 {
 p {
 }
 
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 8px 0px;
+}
+
 #windowcontent {
   margin: 8px;
   display: grid;
