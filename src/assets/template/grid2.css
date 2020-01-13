@@ -122,7 +122,8 @@ body {
   height: 100%;
   width: 100%;
   z-index: 5;
-  background-image: url("./assets/lines.png");
+  background-image: url(../img/bg.png);
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAECAYAAABP2FU6AAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDAgNzkuMTYwNDUxLCAyMDE3LzA1LzA2LTAxOjA4OjIxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+LUNEtwAAABBJREFUCJljYGBg8GViQAEABQIAUMdse+oAAAAASUVORK5CYII=");
   background-size: 0.1rem 0.2rem;
   animation: flicker 0.15s infinite;
 }
@@ -228,12 +229,6 @@ p {
 }
 
 #articletitle {
-  border-style: solid;
-  border-width: 2px;
-  padding: 12px;
-}
-
-#topictitle {
   border-style: solid;
   border-width: 2px;
   padding: 12px;
