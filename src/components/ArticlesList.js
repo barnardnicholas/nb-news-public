@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ArticleCard from "./ArticleCard";
+import uparrow from "../assets/uparrow.png";
 
 class ArticlesList extends Component {
   render() {
@@ -17,6 +18,7 @@ class ArticlesList extends Component {
             culpa qui officia deserunt mollit anim id est laborum."
           </p>
         </li>
+        <img src={uparrow} alt="up arrow" height="60" width="60" />
       </ul>
     );
   }
