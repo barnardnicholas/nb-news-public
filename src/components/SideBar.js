@@ -1,11 +1,16 @@
-import React from "react";
+import React, { Component } from "react";
 
-const SideBar = () => {
-  return (
-    <div id="sidebar">
-      <h3>Side Bar</h3>
-    </div>
-  );
-};
+class SideBar extends Component {
+  state = {
+    ads: []
+  };
+  render() {
+    return (
+      <div id="sidebar">
+        <h3>Side Bar</h3>
+      </div>
+    );
+  }
+}
 
 export default SideBar;

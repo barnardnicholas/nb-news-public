@@ -1,7 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 
-const TopicsList = () => {
-  return <div id="topicslist"></div>;
-};
+class TopicsList extends Component {
+  state = { topics: [] };
+  render() {
+    return <div id="topicslist"></div>;
+  }
+}
 
 export default TopicsList;
