@@ -116,6 +116,7 @@ body {
 }
 
 .overlay {
+  pointer-events: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -131,7 +132,7 @@ body {
   width: 1190px;
   border-color: #0ee027;
   border-style: solid;
-  border-width: 2px;
+  border-width: 4px;
   -webkit-filter: blur(0.75px);
   -moz-filter: blur(0.75px);
   -o-filter: blur(0.75px);
@@ -142,14 +143,21 @@ body {
 #windowbar {
   display: grid;
   grid-template-columns: 1fr 50px;
-  height: 50px;
-  border-width: 2px;
-  border-bottom: solid;
+  height: 42px;
+  border-bottom: solid 4px;
+}
+
+#windowbarcontent {
+  height: 42px;
 }
 
 #windowbarclosebtn {
+  font-family: 8-bit-pusar;
+  height: 42px;
   border-width: 2px;
   border-left: solid;
+  text-align: center;
+  text-justify: center;
 }
 
 h1 {
@@ -167,13 +175,19 @@ h2 {
 }
 
 h3 {
+  margin: 2px;
   font-family: 8-bit-pusab;
   font-size: 24px;
 }
 
 h4 {
+  margin: 2px;
   font-family: 8-bit-pusab;
   font-size: 20px;
+}
+
+h5 {
+  margin: 0px;
 }
 
 p {
@@ -182,13 +196,17 @@ p {
 ul {
   list-style: none;
   margin: 0px;
-  padding: 8px 0px;
+  padding: 0px;
+}
+
+li {
+  margin: 8px 0px;
 }
 
 #windowcontent {
   margin: 8px;
   display: grid;
-  grid-template-rows: 220px 70px 1fr;
+  grid-template-rows: 220px 42px 1fr;
   grid-gap: 8px;
   height: 1fr;
 }
@@ -206,9 +224,38 @@ ul {
 }
 
 #navbar {
+  display: grid;
+  grid-template-columns: 150px 150px 150px 150px 1fr;
+  grid-gap: 5px;
   border-style: solid;
   border-width: 2px;
-  padding: 12px;
+  padding: 0px;
+}
+
+.navbutton {
+  color: inherit;
+  margin: 0px;
+  background-color: transparent;
+  border-right: 2px solid #0ee027;
+  display: inline-block;
+  cursor: pointer;
+  color: #0ee027;
+  font-family: Fipps;
+  text-decoration: none;
+  text-align: center;
+  text-justify: center;
+}
+.navbutton:hover {
+  background-color: transparent;
+}
+.navbutton:active {
+  position: relative;
+  top: 1px;
+}
+
+.reactlink {
+  color: inherit;
+  text-decoration: none;
 }
 
 #main {
@@ -234,9 +281,35 @@ ul {
 }
 
 #articletitle {
+  font-family: Fipps;
   border-style: solid;
   border-width: 2px;
   padding: 12px;
+}
+
+#singlearticle {
+  border-style: solid;
+  border-width: 2px;
+  padding: 12px;
+}
+
+#singlearticletitle {
+  font-family: Fipps;
+}
+
+#articlesubtitle {
+  padding: 12px;
+  border-bottom: 2px solid;
+}
+
+#singlearticlebody {
+  padding: 16px;
+  border-bottom: 2px solid;
+}
+
+#singlearticlefooter {
+  padding: 12px;
+  border-bottom: 2px solid;
 }
 
 #topictitle {
@@ -250,4 +323,18 @@ ul {
   border-style: solid;
   border-width: 2px;
   padding: 8px;
+}
+
+#commentslist {
+  padding: 12px;
+}
+
+#commentstitle {
+  font-size: 16px;
+}
+
+#commentcard {
+  margin: 12px 12px 12px 120px;
+  padding: 12px;
+  border-bottom: 2px solid;
 }

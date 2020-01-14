@@ -1,11 +1,24 @@
 import React, { Component } from "react";
+import CommentCard from "./CommentCard";
+import * as dummyData from "./dummy-data";
 
 class CommentsList extends Component {
   state = {
-    comments: []
+    comments: dummyData.commentsByArticle
   };
+
   render() {
-    return <div id="commentslist"></div>;
+    const { comments } = this.state;
+    return (
+      <div id="commentslist">
+        <h3 id="commentstitle">Comments:</h3>
+        <ul id="commentslistbody">
+          {comments.map(comment => {
+            return <CommentCard key={comment.comment_id} comment={comment} />;
+          })}
+        </ul>
+      </div>
+    );
   }
 }
 

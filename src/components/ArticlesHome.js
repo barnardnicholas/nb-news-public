@@ -1,15 +1,27 @@
-import React from "react";
+import React, { Component } from "react";
+import { Router } from "@reach/router";
 import ArticlesList from "./ArticlesList";
+import * as api from "./api";
 
-const ArticlesHome = () => {
-  return (
-    <div id="articleshome">
-      <div id="articletitle">
-        <h3>Articles</h3>
+class ArticlesHome extends Component {
+  state = {
+    articles: []
+  };
+
+  componentDidMount() {
+    api.getAllArticles().then(articles => {
+      this.setState({ articles: articles });
+    });
+  }
+
+  render() {
+    const { articles } = this.state;
+    return (
+      <div id="articleshome">
+        <ArticlesList articles={articles} />
       </div>
-      <ArticlesList />
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default ArticlesHome;
