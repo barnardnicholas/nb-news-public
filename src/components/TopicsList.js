@@ -1,10 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
+import TopicCard from "./TopicCard";
 
-class TopicsList extends Component {
-  state = { topics: [] };
-  render() {
-    return <div id="topicslist"></div>;
-  }
-}
+const TopicsList = props => {
+  const { topics } = props;
+  return (
+    <>
+      <div id="topictitle">
+        <h3>Topics</h3>
+      </div>
+      <ul id="topicslist">
+        {topics.map(topic => {
+          return (
+            <TopicCard className="topiccard" key={topic.slug} topic={topic} />
+          );
+        })}
+      </ul>
+    </>
+  );
+};
 
 export default TopicsList;

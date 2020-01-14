@@ -35,6 +35,15 @@
     url("./fonts/minecraftia-regular-webfont.svg") format("svg");
 }
 
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+.App {
+}
+
 body {
   font-family: Minecraftia;
   padding: 30px;
@@ -47,6 +56,9 @@ body {
   text-justify: center;
   align-items: center;
   justify-items: center;
+  padding: 30px;
+  overflow: hidden;
+  position: fixed;
 }
 
 @keyframes flicker {
@@ -130,6 +142,7 @@ body {
 
 #masterwindow {
   width: 1190px;
+  height: 90%;
   border-color: #0ee027;
   border-style: solid;
   border-width: 4px;
@@ -154,8 +167,7 @@ body {
 #windowbarclosebtn {
   font-family: 8-bit-pusar;
   height: 42px;
-  border-width: 2px;
-  border-left: solid;
+  border-left: 4px solid;
   text-align: center;
   text-justify: center;
 }
@@ -206,9 +218,10 @@ li {
 #windowcontent {
   margin: 8px;
   display: grid;
-  grid-template-rows: 220px 42px 1fr;
+  grid-template-rows: 140px 42px 1fr;
   grid-gap: 8px;
   height: 1fr;
+  width: 1fr;
 }
 #windowcontent > div {
   /* padding: 8px; */
@@ -263,21 +276,42 @@ li {
   grid-template-columns: 150px 1fr;
   grid-gap: 5px;
   padding: 0px;
+  overflow-y: scroll;
+  scroll-behavior: auto;
+  padding-right: 8px;
+  height: 550px;
 }
 #main > div {
   /* padding: 8px; */
 }
 
 #sidebar {
+  height: 1fr;
   border-style: solid;
   border-width: 2px;
   padding: 12px;
-  height: 1fr;
 }
 
 #viewport {
   display: grid;
   grid-gap: 8px;
+}
+
+#main::-webkit-scrollbar {
+  width: 20px;
+}
+
+#main::-webkit-scrollbar-track {
+  border: 2px solid;
+  margin-left: 8px;
+}
+
+#main::-webkit-scrollbar-thumb {
+  background: #0ee027;
+}
+
+#main::-webkit-scrollbar-button {
+  background: #0ee027;
 }
 
 #articletitle {
@@ -304,7 +338,7 @@ li {
 
 #singlearticlebody {
   padding: 16px;
-  border-bottom: 2px solid;
+  /* border-bottom: 2px solid; */
 }
 
 #singlearticlefooter {
@@ -312,17 +346,10 @@ li {
   border-bottom: 2px solid;
 }
 
-#topictitle {
-  border-style: solid;
-  border-width: 2px;
-  padding: 12px;
-}
-
 .articlecard {
   padding: 8px;
   border-style: solid;
   border-width: 2px;
-  padding: 8px;
 }
 
 #commentslist {
@@ -336,5 +363,18 @@ li {
 #commentcard {
   margin: 12px 12px 12px 120px;
   padding: 12px;
-  border-bottom: 2px solid;
+  border: 2px solid;
+}
+
+#topictitle {
+  font-family: Fipps;
+  border-style: solid;
+  border-width: 2px;
+  padding: 12px;
+}
+
+.topiccard {
+  padding: 8px;
+  border-style: solid;
+  border-width: 2px;
 }

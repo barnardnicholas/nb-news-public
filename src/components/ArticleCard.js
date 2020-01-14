@@ -14,7 +14,7 @@ const ArticleCard = props => {
       <h5>{article.created_at}</h5>
       <h5>Topic: {article.topic}</h5>
       <p>{utils.truncateText(article.body)}</p>
-      <Link to={`${article.article_id}`} className="reactlink">
+      <Link to={`/articles/${article.article_id}`} className="reactlink">
         <h5>Read more. . .</h5>
       </Link>
     </li>

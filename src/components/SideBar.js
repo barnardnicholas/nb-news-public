@@ -1,13 +1,26 @@
 import React, { Component } from "react";
+import AdCard from "./AdCard";
+import * as dummyData from "./dummy-data";
 
 class SideBar extends Component {
   state = {
     ads: []
   };
+
+  componentDidMount() {
+    console.log(this.state);
+    this.setState({ ads: dummyData.ads });
+  }
+
   render() {
+    const { ads } = this.state;
     return (
       <div id="sidebar">
-        <h3>Side Bar</h3>
+        <ul>
+          {ads.map(ad => {
+            return <AdCard key={ad.ad_id} ad={ad} />;
+          })}
+        </ul>
       </div>
     );
   }

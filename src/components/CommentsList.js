@@ -11,7 +11,7 @@ class CommentsList extends Component {
     const { comments } = this.state;
     return (
       <div id="commentslist">
-        <h3 id="commentstitle">Comments:</h3>
+        <h3 id="commentstitle">Comments: ({comments.length})</h3>
         <ul id="commentslistbody">
           {comments.map(comment => {
             return <CommentCard key={comment.comment_id} comment={comment} />;

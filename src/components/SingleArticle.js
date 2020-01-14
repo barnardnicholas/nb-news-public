@@ -10,7 +10,6 @@ class SingleArticle extends Component {
   componentDidMount() {
     const { article_id } = this.props;
     api.getArticleById(article_id).then(article => {
-      console.log(article);
       this.setState({ article: article });
     });
   }

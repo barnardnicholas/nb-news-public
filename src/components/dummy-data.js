@@ -102,3 +102,9 @@ export const commentsByArticle = [
       "Consequatur inventore voluptatum hic qui magnam nulla rerum. Beatae sint sed qui iure in est. Quo quibusdam molestias autem animi repellendus at et. Voluptates maxime recusandae. Repudiandae qui nesciunt."
   }
 ];
+
+export const ads = [
+  { ad_id: 1, body: "Ad no. 1" },
+  { ad_id: 2, body: "Ad no. 2" },
+  { ad_id: 3, body: "Ad no. 3" }
+];

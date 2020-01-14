@@ -13,3 +13,9 @@ export const getArticleById = article_id => {
     return response.data.article;
   });
 };
+
+export const getArticlesByTopic = slug => {
+  return axios.get(`${baseURL}/articles/?topic=${slug}`).then(response => {
+    return response.data.articles;
+  });
+};
