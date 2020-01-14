@@ -162,6 +162,12 @@ body {
 
 #windowbarcontent {
   height: 42px;
+  background: url(./assets/dither1_trans.png);
+  background-repeat: repeat;
+  background-size: 8px 8px;
+}
+
+#windowtext {
 }
 
 #windowbarclosebtn {
@@ -212,6 +218,7 @@ ul {
 }
 
 li {
+  list-style: none;
   margin: 8px 0px;
 }
 
@@ -312,6 +319,19 @@ li {
 
 #main::-webkit-scrollbar-button {
   background: #0ee027;
+}
+
+#hometitle {
+  font-family: Fipps;
+  border-style: solid;
+  border-width: 2px;
+  padding: 12px;
+}
+
+#homepagebody {
+  padding: 8px;
+  border-style: solid;
+  border-width: 2px;
 }
 
 #articletitle {

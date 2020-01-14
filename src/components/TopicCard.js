@@ -10,7 +10,7 @@ class TopicCard extends Component {
 
   componentDidMount() {
     const { slug } = this.props.topic;
-    api.getArticlesByTopic(slug).then(quantity => {
+    api.getArticles(slug).then(quantity => {
       this.setState({ relatedArticles: quantity });
     });
   }
@@ -22,7 +22,7 @@ class TopicCard extends Component {
       <li className="topiccard">
         <Link to={`/topics/${topic.slug}/articles`} className="reactlink">
           <h4>{topic.description}</h4>
-          <p>{subTitle}</p>
+          <h5>{subTitle}</h5>
         </Link>
       </li>
     );

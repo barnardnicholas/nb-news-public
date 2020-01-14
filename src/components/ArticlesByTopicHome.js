@@ -10,15 +10,16 @@ class ArticlesByTopicHome extends Component {
 
   componentDidMount() {
     const { slug } = this.props;
-    api.getArticlesByTopic(slug).then(articles => {
+    api.getArticles(slug).then(articles => {
       this.setState({ articles: articles });
     });
   }
   render() {
     const { articles } = this.state;
+    const { slug } = this.props;
     return (
       <div id="articlesbytopichome">
-        <ArticlesList articles={articles} />
+        <ArticlesList articles={articles} filter={slug} />
       </div>
     );
   }

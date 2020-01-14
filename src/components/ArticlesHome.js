@@ -8,7 +8,7 @@ class ArticlesHome extends Component {
   };
 
   componentDidMount() {
-    api.getAllArticles().then(articles => {
+    api.getArticles().then(articles => {
       this.setState({ articles: articles });
     });
   }

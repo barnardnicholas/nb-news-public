@@ -4,10 +4,9 @@ import * as utils from "./utils";
 
 const ArticleCard = props => {
   const { article } = props;
-
   return (
     <li className="articlecard">
-      <Link to={`${article.article_id}`} className="reactlink">
+      <Link to={`/articles/${article.article_id}`} className="reactlink">
         <h4>{article.title}</h4>
       </Link>
       <h5>By {article.author}</h5>
