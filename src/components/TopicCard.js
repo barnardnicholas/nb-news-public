@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import { topics } from "./dummy-data";
 import * as api from "./api";
 
 class TopicCard extends Component {

@@ -12,7 +12,6 @@ import About from "./components/About";
 import SingleArticle from "./components/SingleArticle";
 import ArticlesByTopicHome from "./components/ArticlesByTopicHome";
 import ErrorPage from "./components/ErrorPage";
-import * as dummyData from "./components/dummy-data";
 import "./App.css";
 
 class App extends Component {
@@ -20,7 +19,16 @@ class App extends Component {
     windowText: "NC News v0.1",
     isLoading: false,
     isClosed: false,
-    loggedInUser: dummyData.singleUser
+    loggedInUser: {
+      username: "weegembump",
+      avatar_url:
+        "https://www.upandrunning.co.uk/media/catalog/product/cache/1/image/650x/040ec09b1e35df139433887a97daa66f/m/r/mr-bump.jpg",
+      name: "Gemma Bump"
+    }
+  };
+
+  switchUser = () => {
+    console.log("switchuser");
   };
 
   renderMasterWindow() {

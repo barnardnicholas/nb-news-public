@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import * as api from "./api";
-import * as dummyData from "./dummy-data";
 import ArticleCard from "./ArticleCard";
 
 class Home extends Component {

@@ -8,7 +8,6 @@ class SideBar extends Component {
   };
 
   componentDidMount() {
-    console.log(this.state);
     this.setState({ ads: dummyData.ads });
   }
 

@@ -11,7 +11,8 @@ class SingleArticle extends Component {
     author: null,
     topic: null,
     created_at: null,
-    article_id: null
+    article_id: null,
+    userHasVoted: false
   };
 
   componentDidMount() {
@@ -40,7 +41,7 @@ class SingleArticle extends Component {
 
   handleVote = (article_id, vote_inc) => {
     const { votes } = this.state;
-    this.setState({ votes: votes + 1 });
+    this.setState({ votes: votes + 1, userHasVoted: true });
     api.patchArticleById(article_id, vote_inc);
   };
 
@@ -52,8 +53,9 @@ class SingleArticle extends Component {
       author,
       topic,
       created_at,
-      article_id
+      userHasVoted
     } = this.state;
+    const { article_id } = this.props;
     const { loggedInUser } = this.props;
     return (
       <div id="singlearticle">
@@ -67,12 +69,12 @@ class SingleArticle extends Component {
         </div>
         <p id="singlearticlebody">{body}</p>
         <VotesBar
-          type="article"
           id={article_id}
           votes={votes}
           handleVote={this.handleVote}
+          userHasVoted={userHasVoted}
         />
-        <CommentsList />
+        <CommentsList article_id={article_id} loggedInUser={loggedInUser} />
       </div>
     );
   }

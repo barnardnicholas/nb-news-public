@@ -1,21 +1,74 @@
-import React from "react";
+import React, { Component } from "react";
+import * as api from "./api";
 import VotesBar from "./VotesBar";
 
-const CommentCard = ({ comment, loggedInUser }) => {
-  const { author, body, votes, created_at, comment_id } = comment;
-
-  const handleVote = () => {
-    console.log(`comment ${comment_id} voted by ${loggedInUser}`);
+class CommentCard extends Component {
+  state = {
+    author: null,
+    body: null,
+    votes: null,
+    created_at: null,
+    comment_id: null,
+    isUsersComment: false,
+    userHasVoted: false
   };
 
-  return (
-    <li id="commentcard">
-      <h5>{author}</h5>
-      <h5>{created_at}</h5>
-      <p>{body}</p>
-      <VotesBar type="comment" data={comment} handleClick={handleVote} />
-    </li>
-  );
-};
+  handleVote = (comment_id, vote_inc) => {
+    const { votes } = this.state;
+    this.setState({ votes: votes + 1, userHasVoted: true });
+    api.patchCommentById(comment_id, vote_inc);
+  };
+
+  renderDeleteComment = () => {
+    return (
+      <button>
+        <h5 id="buttontext">Delete this comment</h5>
+      </button>
+    );
+  };
+
+  componentDidMount() {
+    const { author, body, votes, created_at, comment_id } = this.props.comment;
+    const { username } = this.props.loggedInUser;
+    let isUsersComment = false;
+    if (username === author) {
+      isUsersComment = true;
+    }
+    this.setState({
+      author,
+      body,
+      votes,
+      created_at,
+      comment_id,
+      isUsersComment
+    });
+  }
+
+  render() {
+    const {
+      author,
+      body,
+      votes,
+      created_at,
+      comment_id,
+      isUsersComment,
+      userHasVoted
+    } = this.state;
+    return (
+      <li id="commentcard">
+        <h5>{author}</h5>
+        <h5>{created_at}</h5>
+        <p>{body}</p>
+        <VotesBar
+          id={comment_id}
+          votes={votes}
+          handleVote={this.handleVote}
+          userHasVoted={userHasVoted}
+        />
+        {isUsersComment && this.renderDeleteComment()}
+      </li>
+    );
+  }
+}
 
 export default CommentCard;

@@ -63,18 +63,44 @@ body {
 
 button {
   font-family: inherit;
+  font-size: inherit;
+  text-shadow: inherit;
   outline: none;
   color: inherit;
   margin: 0px;
-  border: 0px;
-  background-color: transparent;
+  border-width: 2px 4px 4px 2px;
+  border-style: solid;
+  border-color: inherit;
+  padding: 2px;
+  background-color: inherit;
   display: inline-block;
   /* cursor: pointer; */
   color: #0ee027;
 }
 
 button:hover {
-  cursor: grab;
+  color: black;
+  background-color: #0ee027;
+}
+
+button:active {
+  position: relative;
+  top: 1px;
+  color: black;
+  background-color: #0ee027;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+button:hover:disabled {
+  color: inherit;
+  background-color: inherit;
+}
+
+#buttontext {
+  margin: 8px;
 }
 
 @keyframes flicker {
@@ -350,11 +376,15 @@ li {
   border-width: 2px;
 }
 
-#articletitle {
-  font-family: Fipps;
+#articleshome {
   border-style: solid;
   border-width: 2px;
   padding: 12px;
+}
+
+#articletitle {
+  font-family: Fipps;
+  padding: 0px 0px 12px 0px;
 }
 
 #singlearticle {
@@ -379,8 +409,20 @@ li {
 
 #votesbar {
   display: grid;
-  grid-template-columns: 150px 150px 1fr;
-  padding: 12px;
+  grid-gap: 12px;
+  grid-template-columns: 100px 50px 1fr;
+  padding: 8px 8px 8px 0px;
+  text-align: center;
+  text-justify: center;
+  justify-content: center;
+  align-content: center;
+}
+
+#votesbar > div {
+  text-align: center;
+  text-justify: center;
+  justify-content: center;
+  align-content: center;
 }
 
 .articlecard {
@@ -390,6 +432,7 @@ li {
 }
 
 #commentslist {
+  border-top: 2px solid;
   padding: 12px;
 }
 
@@ -403,11 +446,15 @@ li {
   border: 2px solid;
 }
 
-#topictitle {
-  font-family: Fipps;
+#topicshome {
   border-style: solid;
   border-width: 2px;
   padding: 12px;
+}
+
+#topictitle {
+  font-family: Fipps;
+  padding: 0px 0px 12px 0px;
 }
 
 .topiccard {
