@@ -39,15 +39,18 @@
   body {
     background-color: lightblue;
   }
-}
-
-.App {
+  #sidebar {
+    visibility: hidden;
+  }
+  #main {
+    grid-template-columns: 1fr;
+    grid-template-areas: "viewport";
+  }
 }
 
 body {
   padding: 0px;
-  overflow: hidden;
-  position: fixed;
+  margin: 0px;
   font-family: Minecraftia;
   padding: 30px;
   color: #0ee027;
@@ -59,6 +62,89 @@ body {
   text-justify: center;
   align-items: center;
   justify-items: center;
+}
+
+#root {
+  width: 90%;
+  height: 90%;
+  /* position: fixed; */
+  /* overflow: scroll; */
+  min-width: 400px;
+  margin: 0px;
+}
+
+.App {
+  /* display: flex; */
+  width: 1fr;
+  height: 1fr;
+  padding: 0px;
+  margin: 0px;
+}
+
+h1 {
+  font-family: Fipps;
+  margin: 0px;
+  font-size: 72px;
+  padding: 20px;
+}
+
+h2 {
+  font-family: 8-bit-pusab;
+  font-size: 1.2em;
+  padding: 10px;
+  margin: 0px;
+}
+
+h3 {
+  margin: 2px;
+  font-family: 8-bit-pusab;
+  font-size: 24px;
+}
+
+h4 {
+  margin: 2px;
+  font-family: 8-bit-pusab;
+  font-size: 20px;
+}
+
+h5 {
+  margin: 0px;
+}
+
+p {
+}
+
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+li {
+  list-style: none;
+  margin: 8px 0px;
+}
+
+textarea::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.5;
+}
+
+textarea:-moz-placeholder {
+  /* Firefox 18- */
+  color: inherit;
+  opacity: 0.5;
+}
+
+textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  color: inherit;
+  opacity: 0.5;
+}
+
+textarea:-ms-input-placeholder {
+  color: inherit;
+  opacity: 0.5;
 }
 
 button {
@@ -75,6 +161,31 @@ button {
   background-color: inherit;
   display: inline-block;
   color: #0ee027;
+}
+
+button:hover {
+  color: black;
+  background-color: #0ee027;
+}
+
+button:active {
+  position: relative;
+  top: 1px;
+  color: black;
+  background-color: #0ee027;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+button:hover:disabled {
+  color: inherit;
+  background-color: inherit;
+}
+
+#buttontext {
+  margin: 8px;
 }
 
 @keyframes flicker {
@@ -157,8 +268,11 @@ button {
 }
 
 #masterwindow {
-  width: 1190px;
-  height: 90%;
+  margin: 20px;
+  padding: 0px;
+  /* width: 100%; */
+  height: 1000px;
+
   border-color: #0ee027;
   border-style: solid;
   border-width: 4px;
@@ -196,112 +310,23 @@ button {
   text-justify: center;
 }
 
-h1 {
-  font-family: Fipps;
-  margin: 0px;
-  font-size: 72px;
-  padding: 20px;
-}
-
-h2 {
-  font-family: 8-bit-pusab;
-  font-size: 1.2em;
-  padding: 10px;
-  margin: 0px;
-}
-
-h3 {
-  margin: 2px;
-  font-family: 8-bit-pusab;
-  font-size: 24px;
-}
-
-h4 {
-  margin: 2px;
-  font-family: 8-bit-pusab;
-  font-size: 20px;
-}
-
-h5 {
-  margin: 0px;
-}
-
-p {
-}
-
-ul {
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-li {
-  list-style: none;
-  margin: 8px 0px;
-}
-
-button:hover {
-  color: black;
-  background-color: #0ee027;
-}
-
-button:active {
-  position: relative;
-  top: 1px;
-  color: black;
-  background-color: #0ee027;
-}
-
-button:disabled {
-  opacity: 0.5;
-}
-
-button:hover:disabled {
-  color: inherit;
-  background-color: inherit;
-}
-
-#buttontext {
-  margin: 8px;
-}
-
-textarea::-webkit-input-placeholder {
-  color: inherit;
-  opacity: 0.5;
-}
-
-textarea:-moz-placeholder {
-  /* Firefox 18- */
-  color: inherit;
-  opacity: 0.5;
-}
-
-textarea::-moz-placeholder {
-  /* Firefox 19+ */
-  color: inherit;
-  opacity: 0.5;
-}
-
-textarea:-ms-input-placeholder {
-  color: inherit;
-  opacity: 0.5;
-}
-
 #windowcontent {
+  display: grid;
+  grid-template-rows: 1fr;
   margin: 8px;
   display: grid;
   grid-template-rows: 140px 42px 1fr;
   grid-gap: 8px;
-  height: 1fr;
+  height: inherit;
+  /* max-height: inherit; */
   width: 1fr;
-}
-#windowcontent > div {
-  /* padding: 8px; */
+  overflow: hidden;
 }
 
 #header {
   border-style: solid;
   border-width: 2px;
+  width: 100%;
 }
 
 #logo {
@@ -309,16 +334,17 @@ textarea:-ms-input-placeholder {
 }
 
 #navbar {
-  display: grid;
-  grid-template-columns: 150px 150px 150px 150px 1fr 150px;
+  display: flex;
+  /* grid-template-columns: 150px 150px 150px 150px 1fr 150px;
   grid-template-areas: "home articles topics about blank options";
-  grid-gap: 0px;
+  grid-gap: 0px; */
   border-style: solid;
   border-width: 2px;
   padding: 0px;
 }
 
 .navbutton {
+  width: 120px;
   color: inherit;
   margin: 0px;
   background-color: transparent;
@@ -354,8 +380,6 @@ textarea:-ms-input-placeholder {
 }
 #optionsbutton {
   grid-area: options;
-  border-right: 0px;
-  border-left: 2px solid;
 }
 
 .reactlink {
@@ -366,27 +390,28 @@ textarea:-ms-input-placeholder {
 #main {
   display: grid;
   grid-template-columns: 150px 1fr;
+  grid-template-areas: "sidebar viewport";
   grid-gap: 5px;
   padding: 0px;
   overflow-y: scroll;
   scroll-behavior: auto;
   padding-right: 8px;
-  height: 550px;
-}
-#main > div {
-  /* padding: 8px; */
+  height: 92%;
 }
 
 #sidebar {
   height: 1fr;
+  grid-area: sidebar;
   border-style: solid;
   border-width: 2px;
   padding: 12px;
 }
 
 #viewport {
+  grid-area: viewport;
   display: grid;
   grid-gap: 8px;
+  width: 1fr;
 }
 
 #main::-webkit-scrollbar {
@@ -507,7 +532,7 @@ textarea:-ms-input-placeholder {
 }
 
 #commentcard {
-  margin: 12px 12px 12px 120px;
+  margin: 12px 12px 12px 60px;
   padding: 12px;
   border: 2px solid;
 }
@@ -516,6 +541,7 @@ textarea:-ms-input-placeholder {
   border-style: solid;
   border-width: 2px;
   padding: 12px;
+  height: 1fr;
 }
 
 #topictitle {
