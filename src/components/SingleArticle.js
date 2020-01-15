@@ -1,18 +1,48 @@
 import React, { Component } from "react";
 import * as api from "./api";
 import CommentsList from "./CommentsList";
+import VotesBar from "./VotesBar";
 
 class SingleArticle extends Component {
   state = {
-    article: {}
+    title: null,
+    body: null,
+    votes: null,
+    author: null,
+    topic: null,
+    created_at: null,
+    article_id: null
   };
 
   componentDidMount() {
     const { article_id } = this.props;
     api.getArticleById(article_id).then(article => {
-      this.setState({ article: article });
+      const {
+        title,
+        body,
+        votes,
+        author,
+        topic,
+        created_at,
+        article_id
+      } = article;
+      this.setState({
+        title,
+        body,
+        votes,
+        author,
+        topic,
+        created_at,
+        article_id
+      });
     });
   }
+
+  handleVote = (article_id, vote_inc) => {
+    const { votes } = this.state;
+    this.setState({ votes: votes + 1 });
+    api.patchArticleById(article_id, vote_inc);
+  };
 
   render() {
     const {
@@ -21,8 +51,10 @@ class SingleArticle extends Component {
       votes,
       author,
       topic,
-      created_at
-    } = this.state.article;
+      created_at,
+      article_id
+    } = this.state;
+    const { loggedInUser } = this.props;
     return (
       <div id="singlearticle">
         <div id="singlearticletitle">
@@ -34,9 +66,12 @@ class SingleArticle extends Component {
           <h5>Topic: {topic}</h5>
         </div>
         <p id="singlearticlebody">{body}</p>
-        <div id="singlearticlefooter">
-          <h5>Votes: {votes}</h5>
-        </div>
+        <VotesBar
+          type="article"
+          id={article_id}
+          votes={votes}
+          handleVote={this.handleVote}
+        />
         <CommentsList />
       </div>
     );

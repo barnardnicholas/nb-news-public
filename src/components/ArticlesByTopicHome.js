@@ -16,10 +16,14 @@ class ArticlesByTopicHome extends Component {
   }
   render() {
     const { articles } = this.state;
-    const { slug } = this.props;
+    const { slug, loggedInUser } = this.props;
     return (
       <div id="articlesbytopichome">
-        <ArticlesList articles={articles} filter={slug} />
+        <ArticlesList
+          articles={articles}
+          filter={slug}
+          loggedInUser={loggedInUser}
+        />
       </div>
     );
   }

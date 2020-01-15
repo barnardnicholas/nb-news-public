@@ -15,9 +15,10 @@ class ArticlesHome extends Component {
 
   render() {
     const { articles } = this.state;
+    const { loggedInUser } = this.props;
     return (
       <div id="articleshome">
-        <ArticlesList articles={articles} />
+        <ArticlesList articles={articles} loggedInUser={loggedInUser} />
       </div>
     );
   }

@@ -15,3 +15,12 @@ export const getArticleById = article_id => {
     return response.data.article;
   });
 };
+
+export const patchArticleById = (article_id, votes) => {
+  return axios
+    .patch(`${baseURL}/articles/${article_id}`, { inc_votes: votes })
+    .then(response => {
+      console.log(response);
+      return response.data.article;
+    });
+};
