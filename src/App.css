@@ -168,6 +168,7 @@ button {
   -ms-filter: blur(0.75px);
   filter: blur(0.75px);
   filter: hue-rotate(0deg);
+  /* filter: grayscale(100%) brightness(200%); */
 }
 
 #windowbar {
