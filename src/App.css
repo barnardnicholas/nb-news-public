@@ -45,6 +45,9 @@
 }
 
 body {
+  padding: 0px;
+  overflow: hidden;
+  position: fixed;
   font-family: Minecraftia;
   padding: 30px;
   color: #0ee027;
@@ -56,9 +59,6 @@ body {
   text-justify: center;
   align-items: center;
   justify-items: center;
-  padding: 30px;
-  overflow: hidden;
-  position: fixed;
 }
 
 button {
@@ -75,67 +75,6 @@ button {
   background-color: inherit;
   display: inline-block;
   color: #0ee027;
-}
-
-button:hover {
-  color: black;
-  background-color: #0ee027;
-}
-
-button:active {
-  position: relative;
-  top: 1px;
-  color: black;
-  background-color: #0ee027;
-}
-
-button:disabled {
-  opacity: 0.5;
-}
-
-button:hover:disabled {
-  color: inherit;
-  background-color: inherit;
-}
-
-#buttontext {
-  margin: 8px;
-}
-
-.commenttextinput {
-  background-color: inherit;
-  border-style: solid;
-  border-color: inherit;
-  border-width: 2px;
-  outline: none;
-  color: inherit;
-  font-family: inherit;
-  font-size: inherit;
-  width: 99%;
-  height: 100px;
-  text-overflow: clip;
-}
-
-textarea::-webkit-input-placeholder {
-  color: inherit;
-  opacity: 0.5;
-}
-
-textarea:-moz-placeholder {
-  /* Firefox 18- */
-  color: inherit;
-  opacity: 0.5;
-}
-
-textarea::-moz-placeholder {
-  /* Firefox 19+ */
-  color: inherit;
-  opacity: 0.5;
-}
-
-textarea:-ms-input-placeholder {
-  color: inherit;
-  opacity: 0.5;
 }
 
 @keyframes flicker {
@@ -228,6 +167,7 @@ textarea:-ms-input-placeholder {
   -o-filter: blur(0.75px);
   -ms-filter: blur(0.75px);
   filter: blur(0.75px);
+  filter: hue-rotate(0deg);
 }
 
 #windowbar {
@@ -299,6 +239,53 @@ li {
   margin: 8px 0px;
 }
 
+button:hover {
+  color: black;
+  background-color: #0ee027;
+}
+
+button:active {
+  position: relative;
+  top: 1px;
+  color: black;
+  background-color: #0ee027;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+button:hover:disabled {
+  color: inherit;
+  background-color: inherit;
+}
+
+#buttontext {
+  margin: 8px;
+}
+
+textarea::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.5;
+}
+
+textarea:-moz-placeholder {
+  /* Firefox 18- */
+  color: inherit;
+  opacity: 0.5;
+}
+
+textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  color: inherit;
+  opacity: 0.5;
+}
+
+textarea:-ms-input-placeholder {
+  color: inherit;
+  opacity: 0.5;
+}
+
 #windowcontent {
   margin: 8px;
   display: grid;
@@ -322,8 +309,9 @@ li {
 
 #navbar {
   display: grid;
-  grid-template-columns: 150px 150px 150px 150px 1fr;
-  grid-gap: 5px;
+  grid-template-columns: 150px 150px 150px 150px 1fr 150px;
+  grid-template-areas: "home articles topics about blank options";
+  grid-gap: 0px;
   border-style: solid;
   border-width: 2px;
   padding: 0px;
@@ -333,7 +321,7 @@ li {
   color: inherit;
   margin: 0px;
   background-color: transparent;
-  border-right: 2px solid #0ee027;
+  border-right: 2px solid;
   display: inline-block;
   cursor: pointer;
   color: #0ee027;
@@ -343,11 +331,30 @@ li {
   text-justify: center;
 }
 .navbutton:hover {
-  background-color: transparent;
+  color: black;
+  background-color: #0ee027;
 }
 .navbutton:active {
   position: relative;
   top: 1px;
+}
+
+#homebutton {
+  grid-area: home;
+}
+#articlesbutton {
+  grid-area: articles;
+}
+#topicsbutton {
+  grid-area: topics;
+}
+#aboutbutton {
+  grid-area: about;
+}
+#optionsbutton {
+  grid-area: options;
+  border-right: 0px;
+  border-left: 2px solid;
 }
 
 .reactlink {
@@ -398,17 +405,22 @@ li {
   background: #0ee027;
 }
 
-#hometitle {
-  font-family: Fipps;
+#home {
   border-style: solid;
   border-width: 2px;
+}
+
+#hometitle {
+  font-family: Fipps;
   padding: 12px;
 }
 
 #homepagebody {
-  padding: 8px;
-  border-style: solid;
-  border-width: 2px;
+  padding: 16px;
+}
+
+#featuredarticle {
+  padding: 16px;
 }
 
 #articleshome {
@@ -469,6 +481,20 @@ li {
 #commentslist {
   border-top: 2px solid;
   padding: 12px;
+}
+
+.commenttextinput {
+  background-color: inherit;
+  border-style: solid;
+  border-color: inherit;
+  border-width: 2px;
+  outline: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  width: 99%;
+  height: 100px;
+  text-overflow: clip;
 }
 
 #submitcommentbutton {

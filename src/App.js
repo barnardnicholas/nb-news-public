@@ -13,6 +13,7 @@ import SingleArticle from "./components/SingleArticle";
 import ArticlesByTopicHome from "./components/ArticlesByTopicHome";
 import ErrorPage from "./components/ErrorPage";
 import "./App.css";
+import Options from "./components/Options";
 
 class App extends Component {
   state = {
@@ -59,6 +60,7 @@ class App extends Component {
                   loggedInUser={loggedInUser}
                 />
                 <About path="/about" />
+                <Options path="/options" />
                 <ErrorPage default />
               </Router>
             </div>

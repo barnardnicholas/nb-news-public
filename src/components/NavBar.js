@@ -19,6 +19,9 @@ class NavBar extends Component {
         <Link to="/about" id="aboutbutton" className="navbutton">
           About
         </Link>
+        <Link to="/options" id="optionsbutton" className="navbutton">
+          Options
+        </Link>
       </nav>
     );
   }

@@ -43,10 +43,10 @@ class Home extends Component {
   showFeaturedArticle() {
     const { featuredArticle } = this.state;
     return (
-      <>
+      <div id="featuredarticle">
         <h3>Featured Article:</h3>
         <ArticleCard article={featuredArticle} />
-      </>
+      </div>
     );
   }
 

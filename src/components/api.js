@@ -45,8 +45,6 @@ export const deleteComment = comment_id => {
 };
 
 export const postComment = (article_id, body) => {
-  console.log(article_id);
-  console.log(body);
   return axios
     .post(`${baseURL}/articles/${article_id}/comments`, body)
     .then(response => {
