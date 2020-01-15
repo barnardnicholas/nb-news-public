@@ -39,3 +39,9 @@ export const patchCommentById = (comment_id, votes) => {
       return response.data.comment;
     });
 };
+
+export const deleteComment = comment_id => {
+  return axios.delete(`${baseURL}/comments/${comment_id}`).then(response => {
+    console.log(response);
+  });
+};

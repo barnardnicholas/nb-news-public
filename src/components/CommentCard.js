@@ -19,9 +19,15 @@ class CommentCard extends Component {
     api.patchCommentById(comment_id, vote_inc);
   };
 
+  handleDelete = () => {
+    const { deleteComment } = this.props;
+    const { comment_id } = this.state;
+    deleteComment(comment_id);
+  };
+
   renderDeleteComment = () => {
     return (
-      <button>
+      <button onClick={this.handleDelete}>
         <h5 id="buttontext">Delete this comment</h5>
       </button>
     );

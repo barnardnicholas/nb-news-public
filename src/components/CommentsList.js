@@ -14,6 +14,15 @@ class CommentsList extends Component {
     });
   }
 
+  deleteComment = comment_id => {
+    const { article_id } = this.props;
+    api.deleteComment(comment_id).then(response => {
+      api.getCommentsByArticleId(article_id).then(comments => {
+        this.setState({ comments: comments });
+      });
+    });
+  };
+
   render() {
     const { comments } = this.state;
     const { loggedInUser } = this.props;
@@ -27,6 +36,7 @@ class CommentsList extends Component {
                 key={comment.comment_id}
                 comment={comment}
                 loggedInUser={loggedInUser}
+                deleteComment={this.deleteComment}
               />
             );
           })}
