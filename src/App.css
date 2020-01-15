@@ -74,7 +74,6 @@ button {
   padding: 2px;
   background-color: inherit;
   display: inline-block;
-  /* cursor: pointer; */
   color: #0ee027;
 }
 
@@ -101,6 +100,42 @@ button:hover:disabled {
 
 #buttontext {
   margin: 8px;
+}
+
+.commenttextinput {
+  background-color: inherit;
+  border-style: solid;
+  border-color: inherit;
+  border-width: 2px;
+  outline: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  width: 99%;
+  height: 100px;
+  text-overflow: clip;
+}
+
+textarea::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.5;
+}
+
+textarea:-moz-placeholder {
+  /* Firefox 18- */
+  color: inherit;
+  opacity: 0.5;
+}
+
+textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  color: inherit;
+  opacity: 0.5;
+}
+
+textarea:-ms-input-placeholder {
+  color: inherit;
+  opacity: 0.5;
 }
 
 @keyframes flicker {
@@ -434,6 +469,10 @@ li {
 #commentslist {
   border-top: 2px solid;
   padding: 12px;
+}
+
+#submitcommentbutton {
+  margin: 12px 0px 0px 0px;
 }
 
 #commentstitle {
