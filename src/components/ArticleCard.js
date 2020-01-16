@@ -4,10 +4,10 @@ import * as utils from "./utils";
 
 const ArticleCard = props => {
   const { loggedInUser } = props;
-  const { title, created_at, body, topic, article_id } = props.article;
-  let { author } = props.article;
+  const { title, created_at, body, topic, article_id, author } = props.article;
+  let accreditedAuthor = props.article.author;
   if (author === loggedInUser.username) {
-    author = "You";
+    accreditedAuthor = "You";
   }
   return (
     <li className="articlecard">
@@ -15,7 +15,7 @@ const ArticleCard = props => {
         <h4>{title}</h4>
       </Link>
       <Link to={`/users/${author}/articles`} className="reactlink">
-        <h5>By {author}</h5>
+        <h5>By {accreditedAuthor}</h5>
       </Link>
       <h5>{utils.formatDate(created_at)}</h5>
       <Link to={`/topics/${topic}/articles`} className="reactlink">

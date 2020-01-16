@@ -44,10 +44,11 @@ class Home extends Component {
 
   showFeaturedArticle() {
     const { featuredArticle } = this.state;
+    const { loggedInUser } = this.props;
     return (
       <div id="featuredarticle">
         <h3>Featured Article:</h3>
-        <ArticleCard article={featuredArticle} />
+        <ArticleCard article={featuredArticle} loggedInUser={loggedInUser} />
       </div>
     );
   }
