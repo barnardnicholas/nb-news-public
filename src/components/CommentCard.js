@@ -51,8 +51,8 @@ class CommentCard extends Component {
   }
 
   render() {
+    const { loggedInUser } = this.props;
     const {
-      author,
       body,
       votes,
       created_at,
@@ -60,6 +60,10 @@ class CommentCard extends Component {
       isUsersComment,
       userHasVoted
     } = this.state;
+    let { author } = this.state;
+    if (author === loggedInUser.username) {
+      author = "You";
+    }
     return (
       <li id="commentcard">
         <h5>{author}</h5>
