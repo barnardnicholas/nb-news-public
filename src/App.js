@@ -46,22 +46,42 @@ class App extends Component {
   };
 
   switchUser = username => {
-    api
-      .getUserByUserName(username)
-      .then(user => {
-        this.setState({ loggedInUser: user, hasDialog: false });
-      })
-      .catch(err => {
-        const windowText = "Error";
-        const errorMsg = "Sorry, but the user you typed does not exist";
-        const okDialog = () => {
-          this.closeDialog();
-        };
-        const cancelDialog = () => {
-          this.closeDialog();
-        };
-        this.throwDialog(windowText, errorMsg, okDialog, cancelDialog);
-      });
+    const windowText = "Error";
+    let errorMsg = "You must type a username to continue";
+    const okDialog = () => {
+      this.closeDialog();
+    };
+    const cancelDialog = () => {
+      this.closeDialog();
+    };
+    const dialogClose = () => {
+      this.closeDialog();
+    };
+    if (!username) {
+      this.throwDialog(
+        windowText,
+        errorMsg,
+        okDialog,
+        cancelDialog,
+        dialogClose
+      );
+    } else {
+      api
+        .getUserByUserName(username)
+        .then(user => {
+          this.setState({ loggedInUser: user, hasDialog: false });
+        })
+        .catch(err => {
+          errorMsg = "Sorry, but the user you typed does not exist";
+          this.throwDialog(
+            windowText,
+            errorMsg,
+            okDialog,
+            cancelDialog,
+            dialogClose
+          );
+        });
+    }
   };
 
   changeHue = value => {
