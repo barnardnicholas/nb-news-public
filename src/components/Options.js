@@ -44,13 +44,14 @@ class Options extends Component {
     const { usernameInput } = this.state;
     const okDialog = () => switchUser(usernameInput);
     const cancelDialog = () => closeDialog();
+    const dialogClose = () => closeDialog();
     throwDialog(
       "Switch User?",
       "Do you want to switch user?",
       okDialog,
-      cancelDialog
+      cancelDialog,
+      dialogClose
     );
-    // switchUser(usernameInput);
   };
 
   render() {

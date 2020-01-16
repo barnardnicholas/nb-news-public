@@ -17,6 +17,8 @@ import "./App.css";
 import Options from "./components/Options";
 import * as api from "./components/api";
 import DialogBox from "./components/DialogBox.js";
+import BlinkingCursor from "./components/BlinkingCursor";
+import LoadScreen from "./components/LoadScreen";
 
 class App extends Component {
   state = {
@@ -28,6 +30,7 @@ class App extends Component {
     dialogMsg: "Error message",
     dialogOK: null,
     dialogCancel: null,
+    dialogClose: null,
     loggedInUser: {
       username: "weegembump",
       avatar_url:
@@ -78,22 +81,27 @@ class App extends Component {
   };
 
   togglePostEffects = () => {
-    const {d_postEffects } = this.state;
-    this.setState({d_postEffects: !d_postEffects})
-  }
+    const { d_postEffects } = this.state;
+    this.setState({ d_postEffects: !d_postEffects });
+  };
 
-  throwDialog = (windowText, msg, onOK, onCancel) => {
+  throwDialog = (windowText, msg, onOK, onCancel, onClose) => {
     this.setState({
       hasDialog: true,
       dialogWindowText: windowText,
       dialogMsg: msg,
       dialogOK: onOK,
-      dialogCancel: onCancel
+      dialogCancel: onCancel,
+      dialogClose: onClose
     });
   };
 
   closeDialog = () => {
     this.setState({ hasDialog: false });
+  };
+
+  handleMainWindowClose = () => {
+    this.setState({ isClosed: true });
   };
 
   renderMasterWindow() {
@@ -105,7 +113,10 @@ class App extends Component {
     };
     return (
       <div id="masterwindow" style={masterStyling}>
-        <WindowBar windowText={windowText} />
+        <WindowBar
+          windowText={windowText}
+          onClose={this.handleMainWindowClose}
+        />
         <div id="windowcontent">
           {hasDialog && this.renderDialog()}
           <Header />
@@ -165,6 +176,18 @@ class App extends Component {
     return <p>Loading...</p>;
   }
 
+  renderBlinkingCursor() {
+    return <BlinkingCursor />;
+  }
+
+  renderLoadScreen() {
+    return <LoadScreen />;
+  }
+
+  finishLoading = () => {
+    this.setState({ isLoading: true });
+  };
+
   renderDialog() {
     const {
       d_blur,
@@ -174,7 +197,8 @@ class App extends Component {
       dialogWindowText,
       dialogMsg,
       dialogOK,
-      dialogCancel
+      dialogCancel,
+      dialogClose
     } = this.state;
     const masterStyling = {
       filter: `blur(${d_blur}px) hue-rotate(${d_hue}deg) grayscale(${100 -
@@ -187,6 +211,7 @@ class App extends Component {
         style={masterStyling}
         okDialog={dialogOK}
         cancelDialog={dialogCancel}
+        closeDialog={dialogClose}
       />
     );
   }
@@ -198,6 +223,7 @@ class App extends Component {
   render() {
     const {
       isLoading,
+      isClosed,
       hasDialog,
       d_blur,
       d_hue,
@@ -209,12 +235,31 @@ class App extends Component {
       filter: `blur(${d_blur}px) hue-rotate(${d_hue}deg) grayscale(${100 -
         d_saturation}%) brightness(${d_brightness}%)`
     };
-    return (
-      <div className="App">
-        {d_postEffects && this.renderPostEffects()}
-        {isLoading ? this.renderLoading() : this.renderMasterWindow()}
-      </div>
-    );
+    if (isClosed) {
+      return (
+        <div className="App">
+          {this.renderPostEffects()}
+          <BlinkingCursor style={masterStyling} />
+        </div>
+      );
+    } else if (isLoading) {
+      return (
+        <div className="App">
+          {this.renderPostEffects()}
+          <LoadScreen
+            style={masterStyling}
+            finishLoading={this.finishLoading}
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div className="App">
+          {d_postEffects && this.renderPostEffects()}
+          {isLoading ? this.renderLoading() : this.renderMasterWindow()}
+        </div>
+      );
+    }
   }
 }
 

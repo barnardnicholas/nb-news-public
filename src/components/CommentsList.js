@@ -39,7 +39,8 @@ class CommentsList extends Component {
       const errorMsg = "You must type a comment to post!";
       const okDialog = () => closeDialog();
       const cancelDialog = () => closeDialog();
-      throwDialog(windowText, errorMsg, okDialog, cancelDialog);
+      const dialogClose = () => closeDialog();
+      throwDialog(windowText, errorMsg, okDialog, cancelDialog, dialogClose);
     } else {
       api.postComment(article_id, requestBody).then(comment => {
         this.setState(currentState => {

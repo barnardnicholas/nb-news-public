@@ -69,6 +69,11 @@ body {
   margin: 0px;
 }
 
+#blinkingcursor {
+  z-index: 3;
+  filter: blur(0.75px);
+}
+
 .App {
   /* display: flex; */
   width: 1fr;

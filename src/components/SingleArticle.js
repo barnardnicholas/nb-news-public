@@ -61,11 +61,15 @@ class SingleArticle extends Component {
         const cancelDialog = () => {
           closeDialog();
         };
+        const dialogClose = () => {
+          closeDialog();
+        };
         throwDialog(
           `${status} Error`,
           `${status} - ${msg}`,
           okDialog,
-          closeDialog
+          cancelDialog,
+          dialogClose
         );
       });
   }
