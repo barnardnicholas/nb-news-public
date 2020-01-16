@@ -3,17 +3,21 @@ import { Link } from "@reach/router";
 import * as utils from "./utils";
 
 const ArticleCard = props => {
-  const { article } = props;
+  const { title, author, created_at, body, topic, article_id } = props.article;
   return (
     <li className="articlecard">
-      <Link to={`/articles/${article.article_id}`} className="reactlink">
-        <h4>{article.title}</h4>
+      <Link to={`/articles/${article_id}`} className="reactlink">
+        <h4>{title}</h4>
       </Link>
-      <h5>By {article.author}</h5>
-      <h5>{article.created_at}</h5>
-      <h5>Topic: {article.topic}</h5>
-      <p>{utils.truncateText(article.body)}</p>
-      <Link to={`/articles/${article.article_id}`} className="reactlink">
+      <Link to={`/users/${author}/articles`} className="reactlink">
+        <h5>By {author}</h5>
+      </Link>
+      <h5>{utils.formatDate(created_at)}</h5>
+      <Link to={`/topics/${topic}/articles`} className="reactlink">
+        <h5>Topic: {topic}</h5>
+      </Link>
+      <p>{utils.truncateText(body)}</p>
+      <Link to={`/articles/${article_id}`} className="reactlink">
         <h5>Read more. . .</h5>
       </Link>
     </li>

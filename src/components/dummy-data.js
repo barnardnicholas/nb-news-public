@@ -108,3 +108,5 @@ export const ads = [
   { ad_id: 2, body: "Ad no. 2" },
   { ad_id: 3, body: "Ad no. 3" }
 ];
+
+export const isoDate = "2017-08-31T13:51:40.263+01:00";

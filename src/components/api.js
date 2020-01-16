@@ -2,9 +2,10 @@ import axios from "axios";
 
 const baseURL = "https://be-nb-news.herokuapp.com/api";
 
-export const getArticles = topic => {
+export const getArticles = (topic, author) => {
+  console.log(author);
   return axios
-    .get(`${baseURL}/articles`, { params: { topic } })
+    .get(`${baseURL}/articles`, { params: { topic, author } })
     .then(response => {
       return response.data.articles;
     });
@@ -22,6 +23,12 @@ export const getCommentsByArticleId = article_id => {
     .then(response => {
       return response.data.comments;
     });
+};
+
+export const getUserByUserName = username => {
+  return axios.get(`${baseURL}/users/${username}`).then(response => {
+    return response.data.user;
+  });
 };
 
 export const patchArticleById = (article_id, votes) => {

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "@reach/router";
 import * as api from "./api";
+import * as utils from "./utils";
 import CommentsList from "./CommentsList";
 import VotesBar from "./VotesBar";
 
@@ -17,6 +19,7 @@ class SingleArticle extends Component {
 
   componentDidMount() {
     const { article_id } = this.props;
+
     api.getArticleById(article_id).then(article => {
       const {
         title,
@@ -27,14 +30,19 @@ class SingleArticle extends Component {
         created_at,
         article_id
       } = article;
-      this.setState({
-        title,
-        body,
-        votes,
-        author,
-        topic,
-        created_at,
-        article_id
+      return api.getUserByUserName(author).then(user => {
+        const { name, username, avatar_url } = user;
+        this.setState({
+          title,
+          body,
+          votes,
+          topic,
+          created_at,
+          article_id,
+          author: name,
+          avatar_url,
+          username
+        });
       });
     });
   }
@@ -53,7 +61,8 @@ class SingleArticle extends Component {
       author,
       topic,
       created_at,
-      userHasVoted
+      userHasVoted,
+      username
     } = this.state;
     const { article_id } = this.props;
     const { loggedInUser } = this.props;
@@ -63,9 +72,13 @@ class SingleArticle extends Component {
           <h3>{title}</h3>
         </div>
         <div id="articlesubtitle">
-          <h5>By {author}</h5>
-          <h5>{created_at}</h5>
-          <h5>Topic: {topic}</h5>
+          <Link to={`/users/${username}/articles`} className="reactlink">
+            <h5>By {author}</h5>
+          </Link>
+          <h5>{utils.formatDate(created_at)}</h5>
+          <Link to={`/topics/${topic}/articles`} className="reactlink">
+            <h5>Topic: {topic}</h5>
+          </Link>
         </div>
         <p id="singlearticlebody">{body}</p>
         <VotesBar

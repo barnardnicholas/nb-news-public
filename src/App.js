@@ -11,6 +11,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import SingleArticle from "./components/SingleArticle";
 import ArticlesByTopicHome from "./components/ArticlesByTopicHome";
+import ArticlesByUserHome from "./components/ArticlesByUserHome";
 import ErrorPage from "./components/ErrorPage";
 import "./App.css";
 import Options from "./components/Options";
@@ -49,6 +50,10 @@ class App extends Component {
                 <TopicsHome path="/topics" loggedInUser={loggedInUser} />
                 <ArticlesByTopicHome
                   path="/topics/:slug/articles"
+                  loggedInUser={loggedInUser}
+                />
+                <ArticlesByUserHome
+                  path="/users/:username/articles"
                   loggedInUser={loggedInUser}
                 />
                 <SingleArticle
