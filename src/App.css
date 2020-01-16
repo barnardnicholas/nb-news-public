@@ -129,6 +129,7 @@ input[type="text"] {
   border: 2px solid;
   font-family: inherit;
   font-size: inherit;
+  margin: 0px 8px 0px 12px;
 }
 
 textarea::-webkit-input-placeholder {
@@ -280,6 +281,22 @@ button:hover:disabled {
   margin: 8px;
 }
 
+#sortbuttons {
+  display: grid;
+  grid-template-columns: 150px 150px 150px 1fr;
+  grid-gap: 8px;
+}
+
+.latchedbutton {
+  color: black;
+  background-color: #0ee027;
+}
+
+.unlatchedbutton {
+  color: inherit;
+  background-color: inherit;
+}
+
 @keyframes flicker {
   0% {
     opacity: 0.27861;
@@ -371,13 +388,14 @@ button:hover:disabled {
   -moz-filter: blur(0.75px);
   -o-filter: blur(0.75px);
   -ms-filter: blur(0.75px); */
-  filter: blur(0.75px) hue-rotate(0deg) grayscale(0%) brightness(100%);
+  /* filter: blur(0.75px) hue-rotate(0deg) grayscale(0%) brightness(100%); */
 }
 
 #windowbar {
   display: grid;
   grid-template-columns: 1fr 50px;
   height: 42px;
+  width: 100%;
   border-bottom: solid 4px;
 }
 
@@ -397,6 +415,14 @@ button:hover:disabled {
   border-left: 4px solid;
   text-align: center;
   text-justify: center;
+  border: none;
+  border-left: 4px solid;
+}
+
+#windowbarclosebtn::hover {
+  background: black;
+  border-color: #0ee027;
+  color: #0ee027;
 }
 
 #windowcontent {
@@ -440,7 +466,6 @@ button:hover:disabled {
   background-color: transparent;
   border-right: 2px solid;
   display: inline-block;
-  cursor: pointer;
   color: #0ee027;
   font-family: Fipps;
   text-decoration: none;
@@ -454,6 +479,16 @@ button:hover:disabled {
 .navbutton:active {
   position: relative;
   top: 1px;
+}
+
+.navuserbutton {
+  color: inherit;
+  display: inline-block;
+  width: 200px;
+  align-self: right;
+  justify-self: center;
+  text-decoration: none;
+  margin: 0px 0px 0px 12px;
 }
 
 #homebutton {
@@ -646,6 +681,18 @@ button:hover:disabled {
   border-width: 2px;
 }
 
+#articlesbytopichome {
+  border-style: solid;
+  border-width: 2px;
+  padding: 12px;
+}
+
+#articlesbyuserhome {
+  border-style: solid;
+  border-width: 2px;
+  padding: 12px;
+}
+
 .avatar {
   filter: sepia(100%) hue-rotate(180deg) saturate(200%);
 }
@@ -658,6 +705,34 @@ button:hover:disabled {
 
 #slider {
   justify-content: center;
+}
+
+#dialogoverlay {
+  position: fixed;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  /* display: grid;
+  grid-template-columns: 1fr 300px 1fr;
+  grid-template-rows: 1fr 200px 1fr;
+  grid-template-areas: "blank blank blank" "blank dialog blank" "blank blank blank"; */
+  text-align: center;
+  text-justify: center;
+}
+
+#dialogbox {
+  display: inline-block;
+  flex-direction: row;
+  width: 300px;
+  height: 200px;
+  margin: 0px;
+  padding: 0px;
+  border: 4px solid;
+  grid-area: dialog;
+  align-self: center;
+  background: black;
+  margin: 300px 0px 0px 0px;
 }
 
 @media only screen and (max-width: 1000px) {

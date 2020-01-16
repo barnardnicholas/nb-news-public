@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "./api";
 import VotesBar from "./VotesBar";
+import * as utils from "./utils";
 
 class CommentCard extends Component {
   state = {
@@ -67,7 +68,7 @@ class CommentCard extends Component {
     return (
       <li id="commentcard">
         <h5>{author}</h5>
-        <h5>{created_at}</h5>
+        <h5>{utils.formatDate(created_at)}</h5>
         <p>{body}</p>
         <VotesBar
           id={comment_id}

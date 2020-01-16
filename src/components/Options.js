@@ -35,15 +35,23 @@ class Options extends Component {
 
   handleSwitchUser = event => {
     event.preventDefault();
-    const { switchUser } = this.props;
+    const { switchUser, throwDialog, closeDialog } = this.props;
     const { usernameInput } = this.state;
-    console.log(usernameInput);
-    switchUser(usernameInput);
+    const okDialog = () => switchUser(usernameInput);
+    const cancelDialog = () => closeDialog();
+    throwDialog(
+      "Switch User?",
+      "Do you want to switch user?",
+      okDialog,
+      cancelDialog
+    );
+    // switchUser(usernameInput);
   };
 
   render() {
     const { d_hue, d_saturation, d_brightness } = this.props;
     const { usernameInput } = this.state;
+
     return (
       <div id="options">
         <h3>Options</h3>
@@ -95,9 +103,12 @@ class Options extends Component {
           <form onSubmit={this.handleSwitchUser}>
             <label>
               Please type a username to switch user:
+              <br />
               <input
                 type="text"
                 value={usernameInput}
+                autocorrent="off"
+                spellCheck="false"
                 onChange={this.handleUsernameInput}
               ></input>
               <button>Submit</button>

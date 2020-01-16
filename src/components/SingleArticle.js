@@ -45,7 +45,6 @@ class SingleArticle extends Component {
           created_at,
           article_id,
           author: name,
-          avatar_url,
           username
         });
       });
@@ -67,8 +66,7 @@ class SingleArticle extends Component {
       topic,
       created_at,
       userHasVoted,
-      username,
-      avatar_url
+      username
     } = this.state;
     const { article_id } = this.props;
     const { loggedInUser } = this.props;

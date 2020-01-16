@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
+import smallAvatar from "../assets/smallavatar.png";
 
 class NavBar extends Component {
   state = {};
 
   render() {
+    const { username } = this.props.loggedInUser;
     return (
       <nav id="navbar">
         <Link to="/" id="homebutton" className="navbutton">
@@ -21,6 +23,10 @@ class NavBar extends Component {
         </Link>
         <Link to="/options" id="optionsbutton" className="navbutton">
           Options
+        </Link>
+        <Link to={`/users/${username}/articles`} className="navuserbutton">
+          {username}
+          <img src={smallAvatar} alt={username} />
         </Link>
       </nav>
     );

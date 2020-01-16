@@ -7,9 +7,9 @@ const WindowBar = ({ windowText }) => {
       <div id="windowbarcontent">
         <h2 id="windowtext">{windowText}</h2>
       </div>
-      <div id="windowbarclosebtn">
+      <button id="windowbarclosebtn">
         <img src={xbutton} alt="X" width="40px" height="40px" />
-      </div>
+      </button>
     </div>
   );
 };
