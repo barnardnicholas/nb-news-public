@@ -31,17 +31,25 @@ class CommentsList extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { article_id, loggedInUser } = this.props;
+    const { article_id, loggedInUser, throwDialog, closeDialog } = this.props;
     const { commentInput } = this.state;
     const requestBody = { username: loggedInUser.username, body: commentInput };
-    api.postComment(article_id, requestBody).then(comment => {
-      this.setState(currentState => {
-        return {
-          comments: [comment, ...currentState.comments],
-          commentInput: ""
-        };
+    if (!commentInput) {
+      const windowText = "400 Error";
+      const errorMsg = "You must type a comment to post!";
+      const okDialog = () => closeDialog();
+      const cancelDialog = () => closeDialog();
+      throwDialog(windowText, errorMsg, okDialog, cancelDialog);
+    } else {
+      api.postComment(article_id, requestBody).then(comment => {
+        this.setState(currentState => {
+          return {
+            comments: [comment, ...currentState.comments],
+            commentInput: ""
+          };
+        });
       });
-    });
+    }
   };
 
   render() {

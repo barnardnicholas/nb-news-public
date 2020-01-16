@@ -20,35 +20,54 @@ class SingleArticle extends Component {
 
   componentDidMount() {
     const { article_id, loggedInUser } = this.props;
-
-    api.getArticleById(article_id).then(article => {
-      const {
-        title,
-        body,
-        votes,
-        author,
-        topic,
-        created_at,
-        article_id
-      } = article;
-      return api.getUserByUserName(author).then(user => {
-        const { username, avatar_url } = user;
-        let { name } = user;
-        if (username === loggedInUser.username) {
-          name = "You";
-        }
-        this.setState({
+    const { throwDialog, closeDialog } = this.props;
+    api
+      .getArticleById(article_id)
+      .then(article => {
+        const {
           title,
           body,
           votes,
+          author,
           topic,
           created_at,
-          article_id,
-          author: name,
-          username
+          article_id
+        } = article;
+        return api.getUserByUserName(author).then(user => {
+          const { username, avatar_url } = user;
+          let { name } = user;
+          if (username === loggedInUser.username) {
+            name = "You";
+          }
+          this.setState({
+            title,
+            body,
+            votes,
+            topic,
+            created_at,
+            article_id,
+            author: name,
+            username
+          });
         });
+      })
+      .catch(err => {
+        const { status } = err.response;
+        const { msg } = err.response.data;
+
+        const okDialog = () => {
+          closeDialog();
+        };
+        const cancelDialog = () => {
+          closeDialog();
+        };
+        throwDialog(
+          `${status} Error`,
+          `${status} - ${msg}`,
+          okDialog,
+          closeDialog
+        );
       });
-    });
   }
 
   handleVote = (article_id, vote_inc) => {
@@ -68,7 +87,7 @@ class SingleArticle extends Component {
       userHasVoted,
       username
     } = this.state;
-    const { article_id } = this.props;
+    const { article_id, throwDialog, closeDialog } = this.props;
     const { loggedInUser } = this.props;
     return (
       <div id="singlearticle">
@@ -97,7 +116,12 @@ class SingleArticle extends Component {
           handleVote={this.handleVote}
           userHasVoted={userHasVoted}
         />
-        <CommentsList article_id={article_id} loggedInUser={loggedInUser} />
+        <CommentsList
+          article_id={article_id}
+          loggedInUser={loggedInUser}
+          throwDialog={throwDialog}
+          closeDialog={closeDialog}
+        />
       </div>
     );
   }

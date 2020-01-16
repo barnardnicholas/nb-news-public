@@ -38,7 +38,8 @@ class App extends Component {
     d_saturation: 100,
     d_brightness: 100,
     d_blur: 0.75,
-    d_flicker: true
+    d_flicker: true,
+    d_postEffects: true
   };
 
   switchUser = username => {
@@ -75,6 +76,11 @@ class App extends Component {
   resetDisplaySettings = () => {
     this.setState({ d_hue: 0, d_saturation: 100, d_brightness: 100 });
   };
+
+  togglePostEffects = () => {
+    const {d_postEffects } = this.state;
+    this.setState({d_postEffects: !d_postEffects})
+  }
 
   throwDialog = (windowText, msg, onOK, onCancel) => {
     this.setState({
@@ -122,10 +128,14 @@ class App extends Component {
                 <SingleArticle
                   path="/articles/:article_id"
                   loggedInUser={loggedInUser}
+                  throwDialog={this.throwDialog}
+                  closeDialog={this.closeDialog}
                 />
                 <SingleArticle
                   path="/topics/:slug/articles/:article_id/"
                   loggedInUser={loggedInUser}
+                  throwDialog={this.throwDialog}
+                  closeDialog={this.closeDialog}
                 />
                 <About path="/about" />
                 <Options
@@ -138,6 +148,7 @@ class App extends Component {
                   d_saturation={d_saturation}
                   d_brightness={d_brightness}
                   resetDisplaySettings={this.resetDisplaySettings}
+                  togglePostEffects={this.togglePostEffects}
                   throwDialog={this.throwDialog}
                   closeDialog={this.closeDialog}
                 />
@@ -180,6 +191,10 @@ class App extends Component {
     );
   }
 
+  renderPostEffects() {
+    return <Overlay />;
+  }
+
   render() {
     const {
       isLoading,
@@ -187,7 +202,8 @@ class App extends Component {
       d_blur,
       d_hue,
       d_saturation,
-      d_brightness
+      d_brightness,
+      d_postEffects
     } = this.state;
     const masterStyling = {
       filter: `blur(${d_blur}px) hue-rotate(${d_hue}deg) grayscale(${100 -
@@ -195,7 +211,7 @@ class App extends Component {
     };
     return (
       <div className="App">
-        {/* <Overlay /> */}
+        {d_postEffects && this.renderPostEffects()}
         {isLoading ? this.renderLoading() : this.renderMasterWindow()}
       </div>
     );

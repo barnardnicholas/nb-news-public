@@ -28,6 +28,11 @@ class Options extends Component {
     resetDisplaySettings();
   };
 
+  handleTogglePostEffects = () => {
+    const { togglePostEffects } = this.props;
+    togglePostEffects();
+  };
+
   handleUsernameInput = event => {
     const { value } = event.target;
     this.setState({ usernameInput: value });
@@ -97,6 +102,10 @@ class Options extends Component {
           </label>
           <br />
           <button onClick={this.handleResetDisplay}>Default Settings</button>
+          <br />
+          <button onClick={this.handleTogglePostEffects}>
+            Toggle Post Effects
+          </button>
         </div>
         <div id="optionssection">
           <h4>User Settings</h4>
