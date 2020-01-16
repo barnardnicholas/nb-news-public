@@ -121,6 +121,16 @@ li {
   margin: 8px 0px;
 }
 
+input[type="text"] {
+  background-color: inherit;
+  border-color: inherit;
+  color: inherit;
+  outline: none;
+  border: 2px solid;
+  font-family: inherit;
+  font-size: inherit;
+}
+
 textarea::-webkit-input-placeholder {
   color: inherit;
   opacity: 0.5;

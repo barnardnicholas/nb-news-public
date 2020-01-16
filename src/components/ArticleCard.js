@@ -3,7 +3,12 @@ import { Link } from "@reach/router";
 import * as utils from "./utils";
 
 const ArticleCard = props => {
-  const { title, author, created_at, body, topic, article_id } = props.article;
+  const { loggedInUser } = props;
+  const { title, created_at, body, topic, article_id } = props.article;
+  let { author } = props.article;
+  if (author === loggedInUser.username) {
+    author = "You";
+  }
   return (
     <li className="articlecard">
       <Link to={`/articles/${article_id}`} className="reactlink">

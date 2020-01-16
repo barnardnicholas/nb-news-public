@@ -15,6 +15,7 @@ import ArticlesByUserHome from "./components/ArticlesByUserHome";
 import ErrorPage from "./components/ErrorPage";
 import "./App.css";
 import Options from "./components/Options";
+import * as api from "./components/api";
 
 class App extends Component {
   state = {
@@ -32,23 +33,27 @@ class App extends Component {
     d_brightness: 100
   };
 
-  switchUser = () => {
+  switchUser = username => {
     console.log("switchuser");
+    api.getUserByUserName(username).then(user => {
+      this.setState({ loggedInUser: user });
+    });
   };
 
   changeHue = value => {
-    console.log("app hue");
     this.setState({ d_hue: value });
   };
 
   changeSaturation = value => {
-    console.log("app hue");
     this.setState({ d_saturation: value });
   };
 
   changeBrightness = value => {
-    console.log("app hue");
     this.setState({ d_brightness: value });
+  };
+
+  resetDisplaySettings = () => {
+    this.setState({ d_hue: 0, d_saturation: 100, d_brightness: 100 });
   };
 
   renderMasterWindow() {
@@ -90,12 +95,14 @@ class App extends Component {
                 <About path="/about" />
                 <Options
                   path="/options"
+                  switchUser={this.switchUser}
                   changeHue={this.changeHue}
                   changeSaturation={this.changeSaturation}
                   changeBrightness={this.changeBrightness}
                   d_hue={d_hue}
                   d_saturation={d_saturation}
                   d_brightness={d_brightness}
+                  resetDisplaySettings={this.resetDisplaySettings}
                 />
                 <ErrorPage default />
               </Router>

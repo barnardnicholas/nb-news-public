@@ -19,7 +19,7 @@ class SingleArticle extends Component {
   };
 
   componentDidMount() {
-    const { article_id } = this.props;
+    const { article_id, loggedInUser } = this.props;
 
     api.getArticleById(article_id).then(article => {
       const {
@@ -32,7 +32,11 @@ class SingleArticle extends Component {
         article_id
       } = article;
       return api.getUserByUserName(author).then(user => {
-        const { name, username, avatar_url } = user;
+        const { username, avatar_url } = user;
+        let { name } = user;
+        if (username === loggedInUser.username) {
+          name = "You";
+        }
         this.setState({
           title,
           body,
@@ -68,7 +72,6 @@ class SingleArticle extends Component {
     } = this.state;
     const { article_id } = this.props;
     const { loggedInUser } = this.props;
-
     return (
       <div id="singlearticle">
         <div id="singlearticletitle">

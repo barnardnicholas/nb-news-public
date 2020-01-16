@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 class Options extends Component {
+  state = {
+    usernameInput: ""
+  };
+
   handleChangeHue = event => {
     const { changeHue } = this.props;
     const { value } = event.target;
@@ -20,14 +24,26 @@ class Options extends Component {
   };
 
   handleResetDisplay = () => {
-    const { changeHue, changeSaturation, changeBrightness } = this.props;
-    changeHue(0);
-    changeSaturation(100);
-    changeBrightness(100);
+    const { resetDisplaySettings } = this.props;
+    resetDisplaySettings();
+  };
+
+  handleUsernameInput = event => {
+    const { value } = event.target;
+    this.setState({ usernameInput: value });
+  };
+
+  handleSwitchUser = event => {
+    event.preventDefault();
+    const { switchUser } = this.props;
+    const { usernameInput } = this.state;
+    console.log(usernameInput);
+    switchUser(usernameInput);
   };
 
   render() {
     const { d_hue, d_saturation, d_brightness } = this.props;
+    const { usernameInput } = this.state;
     return (
       <div id="options">
         <h3>Options</h3>
@@ -40,7 +56,6 @@ class Options extends Component {
                 type="range"
                 min="0"
                 max="359"
-                defaultValue="0"
                 value={d_hue}
                 onChange={this.handleChangeHue}
               ></input>
@@ -54,7 +69,6 @@ class Options extends Component {
                 type="range"
                 min="0"
                 max="100"
-                defaultValue="100"
                 value={d_saturation}
                 onChange={this.handleChangeSaturation}
               ></input>
@@ -68,7 +82,6 @@ class Options extends Component {
                 type="range"
                 min="50"
                 max="150"
-                defaultValue="100"
                 value={d_brightness}
                 onChange={this.handleChangeBrightness}
               ></input>
@@ -79,6 +92,17 @@ class Options extends Component {
         </div>
         <div id="optionssection">
           <h4>User Settings</h4>
+          <form onSubmit={this.handleSwitchUser}>
+            <label>
+              Please type a username to switch user:
+              <input
+                type="text"
+                value={usernameInput}
+                onChange={this.handleUsernameInput}
+              ></input>
+              <button>Submit</button>
+            </label>
+          </form>
         </div>
       </div>
     );
