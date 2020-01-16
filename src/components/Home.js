@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "./api";
 import ArticleCard from "./ArticleCard";
+import ncNarrowHeader from "../assets/ncnarrowheader.png";
 
 class Home extends Component {
   state = {
@@ -21,6 +22,7 @@ class Home extends Component {
   showHomePageHeader() {
     return (
       <>
+        <img id="logo" src={ncNarrowHeader} alt="NC News Logo" />
         <div id="hometitle">
           <h3>NC News Home Page</h3>
         </div>

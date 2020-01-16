@@ -3,7 +3,6 @@ import axios from "axios";
 const baseURL = "https://be-nb-news.herokuapp.com/api";
 
 export const getArticles = (topic, author) => {
-  console.log(author);
   return axios
     .get(`${baseURL}/articles`, { params: { topic, author } })
     .then(response => {

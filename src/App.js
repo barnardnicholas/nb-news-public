@@ -26,17 +26,40 @@ class App extends Component {
       avatar_url:
         "https://www.upandrunning.co.uk/media/catalog/product/cache/1/image/650x/040ec09b1e35df139433887a97daa66f/m/r/mr-bump.jpg",
       name: "Gemma Bump"
-    }
+    },
+    d_hue: 0,
+    d_saturation: 100,
+    d_brightness: 100
   };
 
   switchUser = () => {
     console.log("switchuser");
   };
 
+  changeHue = value => {
+    console.log("app hue");
+    this.setState({ d_hue: value });
+  };
+
+  changeSaturation = value => {
+    console.log("app hue");
+    this.setState({ d_saturation: value });
+  };
+
+  changeBrightness = value => {
+    console.log("app hue");
+    this.setState({ d_brightness: value });
+  };
+
   renderMasterWindow() {
     const { loggedInUser, windowText } = this.state;
+    const { d_hue, d_saturation, d_brightness } = this.state;
+    const masterStyling = {
+      filter: `blur(0.75px) hue-rotate(${d_hue}deg) grayscale(${100 -
+        d_saturation}%) brightness(${d_brightness}%)`
+    };
     return (
-      <div id="masterwindow">
+      <div id="masterwindow" style={masterStyling}>
         <WindowBar windowText={windowText} />
         <div id="windowcontent">
           <Header />
@@ -65,7 +88,15 @@ class App extends Component {
                   loggedInUser={loggedInUser}
                 />
                 <About path="/about" />
-                <Options path="/options" />
+                <Options
+                  path="/options"
+                  changeHue={this.changeHue}
+                  changeSaturation={this.changeSaturation}
+                  changeBrightness={this.changeBrightness}
+                  d_hue={d_hue}
+                  d_saturation={d_saturation}
+                  d_brightness={d_brightness}
+                />
                 <ErrorPage default />
               </Router>
             </div>

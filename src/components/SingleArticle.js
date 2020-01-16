@@ -4,6 +4,7 @@ import * as api from "./api";
 import * as utils from "./utils";
 import CommentsList from "./CommentsList";
 import VotesBar from "./VotesBar";
+import { avatarImages } from "./avatar-lookup";
 
 class SingleArticle extends Component {
   state = {
@@ -62,16 +63,24 @@ class SingleArticle extends Component {
       topic,
       created_at,
       userHasVoted,
-      username
+      username,
+      avatar_url
     } = this.state;
     const { article_id } = this.props;
     const { loggedInUser } = this.props;
+
     return (
       <div id="singlearticle">
         <div id="singlearticletitle">
           <h3>{title}</h3>
         </div>
         <div id="articlesubtitle">
+          <img
+            src={avatarImages[username]}
+            alt={`${username} avatar`}
+            height="150"
+            width="150"
+          />
           <Link to={`/users/${username}/articles`} className="reactlink">
             <h5>By {author}</h5>
           </Link>
