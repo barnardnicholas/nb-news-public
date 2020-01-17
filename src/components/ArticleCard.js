@@ -4,7 +4,16 @@ import * as utils from "./utils";
 
 const ArticleCard = props => {
   const { loggedInUser } = props;
-  const { title, created_at, body, topic, article_id, author } = props.article;
+  const {
+    title,
+    created_at,
+    body,
+    topic,
+    article_id,
+    author,
+    votes,
+    comment_count
+  } = props.article;
   let accreditedAuthor = props.article.author;
   if (author === loggedInUser.username) {
     accreditedAuthor = "You";
