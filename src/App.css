@@ -848,4 +848,8 @@ button:hover:disabled {
     grid-template-rows: 1fr 150px;
     grid-template-areas: "viewport" "sidebar";
   }
+
+  #dialogbox {
+    margin: 100px 0px 0px 0px;
+  }
 }
