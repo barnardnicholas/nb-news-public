@@ -23,7 +23,7 @@ import LoadScreen from "./components/LoadScreen";
 class App extends Component {
   state = {
     windowText: "NC News v0.1",
-    isLoading: false,
+    isLoading: true,
     isClosed: false,
     hasDialog: false,
     dialogWindowText: "Error",
@@ -218,11 +218,12 @@ class App extends Component {
   }
 
   renderLoadScreen() {
-    return <LoadScreen />;
+    return <LoadScreen finishLoading={this.finishLoading} />;
   }
 
   finishLoading = () => {
-    this.setState({ isLoading: true });
+    console.log("finishloading");
+    this.setState({ isLoading: false });
   };
 
   renderDialog() {
@@ -279,7 +280,8 @@ class App extends Component {
           <BlinkingCursor style={masterStyling} />
         </div>
       );
-    } else if (isLoading) {
+    }
+    if (isLoading) {
       return (
         <div className="App">
           {this.renderPostEffects()}
@@ -289,14 +291,13 @@ class App extends Component {
           />
         </div>
       );
-    } else {
-      return (
-        <div className="App">
-          {d_postEffects && this.renderPostEffects()}
-          {isLoading ? this.renderLoading() : this.renderMasterWindow()}
-        </div>
-      );
     }
+    return (
+      <>
+        {d_postEffects && this.renderPostEffects()}
+        {this.renderMasterWindow()}
+      </>
+    );
   }
 }
 

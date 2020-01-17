@@ -23,9 +23,25 @@ class CommentCard extends Component {
   };
 
   handleDelete = () => {
-    const { deleteComment } = this.props;
+    const { deleteComment, throwDialog, closeDialog } = this.props;
     const { comment_id } = this.state;
-    deleteComment(comment_id);
+    const okDialog = () => {
+      deleteComment(comment_id);
+      closeDialog();
+    };
+    const cancelDialog = () => {
+      closeDialog();
+    };
+    const dialogClose = () => {
+      closeDialog();
+    };
+    throwDialog(
+      "Delete Comment?",
+      "Are you sure you want to delete your comment?",
+      okDialog,
+      cancelDialog,
+      dialogClose
+    );
   };
 
   renderDeleteComment = () => {

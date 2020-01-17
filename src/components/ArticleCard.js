@@ -30,11 +30,11 @@ const ArticleCard = props => {
       <Link to={`/topics/${topic}/articles`} className="reactlink">
         <h5>Topic: {topic}</h5>
       </Link>
+      <h5>{`Votes: ${votes}   Comments: ${comment_count}`}</h5>
       <p>{utils.truncateText(body)}</p>
       <Link to={`/articles/${article_id}`} className="reactlink">
         <h5>Read more. . .</h5>
       </Link>
-      <h5>{`Votes: ${votes}   Comments: ${comment_count}`}</h5>
     </li>
   );
 };

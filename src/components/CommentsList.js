@@ -55,7 +55,7 @@ class CommentsList extends Component {
 
   render() {
     const { comments, commentInput } = this.state;
-    const { loggedInUser } = this.props;
+    const { loggedInUser, throwDialog, closeDialog } = this.props;
     return (
       <div id="commentslist">
         <h3 id="commentstitle">Comments: ({comments.length})</h3>
@@ -85,6 +85,8 @@ class CommentsList extends Component {
                 comment={comment}
                 loggedInUser={loggedInUser}
                 deleteComment={this.deleteComment}
+                throwDialog={throwDialog}
+                closeDialog={closeDialog}
               />
             );
           })}
