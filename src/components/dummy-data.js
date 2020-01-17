@@ -104,9 +104,12 @@ export const commentsByArticle = [
 ];
 
 export const ads = [
-  { ad_id: 1, body: "Ad no. 1" },
-  { ad_id: 2, body: "Ad no. 2" },
-  { ad_id: 3, body: "Ad no. 3" }
+  {
+    ad_id: 1,
+    body: "Consequatur inventore voluptatum hic qui magnam nulla rerum. "
+  },
+  { ad_id: 2, body: "Beatae sint sed qui iure in est." },
+  { ad_id: 3, body: "Quo quibusdam molestias autem animi repellendus at et." }
 ];
 
 export const isoDate = "2017-08-31T13:51:40.263+01:00";

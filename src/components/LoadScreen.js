@@ -59,7 +59,7 @@ class LoadScreen extends Component {
     const { masterStyling } = this.state;
     return (
       <div>
-        <p>--## TIBSOFT DISK OPERATING SYSTEM ##--</p>
+        <p>-----##### TIBSOFT DISK OPERATING SYSTEM #####-----</p>
         <BlinkingCursor style={masterStyling} />
       </div>
     );
@@ -68,7 +68,7 @@ class LoadScreen extends Component {
     const { loadingBar, percentDone, spinner, spinnerPhase } = this.state;
     return (
       <div>
-        <p>--## TIBSOFT DISK OPERATING SYSTEM ##--</p>
+        <p>-----##### TIBSOFT DISK OPERATING SYSTEM #####-----</p>
         <p>{`Loading from network...${spinner[spinnerPhase]}`}</p>
         <p>{`${loadingBar} ${percentDone}%`}</p>
       </div>
@@ -84,7 +84,7 @@ class LoadScreen extends Component {
     } = this.state;
     return (
       <div>
-        <p>--## TIBSOFT DISK OPERATING SYSTEM ##--</p>
+        <p>-----##### TIBSOFT DISK OPERATING SYSTEM #####-----</p>
         <p>{`Loading from network...`}</p>
         <p>{`${loadingBar} ${percentDone}%`}</p>
         <p>DONE!</p>

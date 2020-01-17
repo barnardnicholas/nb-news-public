@@ -533,17 +533,25 @@ button:hover:disabled {
   grid-gap: 5px;
   padding: 0px;
   overflow-y: scroll;
-  height: 520px;
+  height: 540px;
   /* height: 400px; */
 }
 
 #sidebar {
   height: 1fr;
+  width: 1fr;
   grid-area: sidebar;
   border-style: solid;
   border-width: 2px;
   padding: 12px;
-  margin: 0px 8px 0px 0px;
+  margin: 0px 4px 0px 0px;
+  overflow: hidden;
+  display: grid;
+}
+
+.adcard {
+  display: inline-block;
+  border: 2px solid;
 }
 
 #viewport {
@@ -764,6 +772,13 @@ button:hover:disabled {
   align-self: center;
   background: black;
   margin: 300px 0px 0px 0px;
+}
+
+/* Overriding sidebar */
+#main {
+  grid-template-columns: auto;
+  grid-template-rows: 1fr 150px;
+  grid-template-areas: "viewport" "sidebar";
 }
 
 @media only screen and (max-width: 800px) {
