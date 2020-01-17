@@ -14,7 +14,7 @@ class BlinkingCursor extends Component {
   renderCursor() {
     const { textToDisplay } = this.state;
     return (
-      <div id="blinkingcursor">
+      <div>
         <p>{textToDisplay}</p>
       </div>
     );

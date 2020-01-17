@@ -277,7 +277,9 @@ class App extends Component {
       return (
         <div className="App">
           {this.renderPostEffects()}
-          <BlinkingCursor style={masterStyling} />
+          <div id="prompt">
+            <BlinkingCursor style={masterStyling} />
+          </div>
         </div>
       );
     }
@@ -285,10 +287,12 @@ class App extends Component {
       return (
         <div className="App">
           {this.renderPostEffects()}
-          <LoadScreen
-            style={masterStyling}
-            finishLoading={this.finishLoading}
-          />
+          <div id="prompt">
+            <LoadScreen
+              style={masterStyling}
+              finishLoading={this.finishLoading}
+            />
+          </div>
         </div>
       );
     }
