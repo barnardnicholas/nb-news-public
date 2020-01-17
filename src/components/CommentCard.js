@@ -11,12 +11,14 @@ class CommentCard extends Component {
     created_at: null,
     comment_id: null,
     isUsersComment: false,
-    userHasVoted: false
+    userVotes: 0
   };
 
   handleVote = (comment_id, vote_inc) => {
-    const { votes } = this.state;
-    this.setState({ votes: votes + 1, userHasVoted: true });
+    const { votes, userVotes } = this.state;
+    const newVotes = votes + vote_inc;
+    const newUserVotes = userVotes + vote_inc;
+    this.setState({ votes: newVotes, userVotes: newUserVotes });
     api.patchCommentById(comment_id, vote_inc);
   };
 
@@ -59,7 +61,7 @@ class CommentCard extends Component {
       created_at,
       comment_id,
       isUsersComment,
-      userHasVoted
+      userVotes
     } = this.state;
     let { author } = this.state;
     if (author === loggedInUser.username) {
@@ -74,7 +76,7 @@ class CommentCard extends Component {
           id={comment_id}
           votes={votes}
           handleVote={this.handleVote}
-          userHasVoted={userHasVoted}
+          userVotes={userVotes}
         />
         {isUsersComment && this.renderDeleteComment()}
       </li>
