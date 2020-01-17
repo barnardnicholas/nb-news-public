@@ -620,21 +620,32 @@ button:hover:disabled {
 }
 
 #votesbar {
-  display: grid;
+  display: flex;
   grid-gap: 12px;
   grid-template-columns: 100px 50px 1fr;
   padding: 8px 8px 8px 0px;
-  text-align: center;
-  text-justify: center;
-  justify-content: center;
-  align-content: center;
+  text-align: left;
+  text-justify: left;
+  justify-content: left;
+  align-content: left;
 }
 
 #votesbar > div {
-  text-align: center;
-  text-justify: center;
-  justify-content: center;
-  align-content: center;
+  display: inline-block;
+}
+
+.votebutton {
+  width: 50px;
+  height: 5 50px;
+  margin: 0px 8px 0px 8px;
+}
+
+#votecount {
+  margin: 0px 0px 0px 16px;
+}
+#votecounttext {
+  font-size: 20px;
+  margin: 12px 0px 0px 0px;
 }
 
 .articlecard {

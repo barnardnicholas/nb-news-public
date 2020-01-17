@@ -16,7 +16,7 @@ class SingleArticle extends Component {
     topic: null,
     created_at: null,
     article_id: null,
-    userHasVoted: false,
+    userVotes: 0,
     hasError: false
   };
 
@@ -79,8 +79,10 @@ class SingleArticle extends Component {
   }
 
   handleVote = (article_id, vote_inc) => {
-    const { votes } = this.state;
-    this.setState({ votes: votes + 1, userHasVoted: true });
+    const { votes, userVotes } = this.state;
+    const newVotes = votes + vote_inc;
+    const newUserVotes = userVotes + vote_inc;
+    this.setState({ votes: newVotes, userVotes: newUserVotes });
     api.patchArticleById(article_id, vote_inc);
   };
 
@@ -92,7 +94,7 @@ class SingleArticle extends Component {
       author,
       topic,
       created_at,
-      userHasVoted,
+      userVotes,
       username
     } = this.state;
     const { article_id, throwDialog, closeDialog } = this.props;
@@ -122,7 +124,7 @@ class SingleArticle extends Component {
           id={article_id}
           votes={votes}
           handleVote={this.handleVote}
-          userHasVoted={userHasVoted}
+          userVotes={userVotes}
         />
         <CommentsList
           article_id={article_id}

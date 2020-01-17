@@ -42,8 +42,7 @@ class App extends Component {
     d_brightness: 100,
     d_blur: 0.75,
     d_flicker: true,
-    d_postEffects: false
-    
+    d_postEffects: true
   };
 
   switchUser = username => {
