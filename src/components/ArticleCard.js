@@ -34,6 +34,7 @@ const ArticleCard = props => {
       <Link to={`/articles/${article_id}`} className="reactlink">
         <h5>Read more. . .</h5>
       </Link>
+      <h5>{`Votes: ${votes}   Comments: ${comment_count}`}</h5>
     </li>
   );
 };

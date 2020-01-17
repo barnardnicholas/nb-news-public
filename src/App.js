@@ -41,7 +41,6 @@ class App extends Component {
     d_saturation: 100,
     d_brightness: 100,
     d_blur: 0.75,
-    d_flicker: true,
     d_postEffects: true
   };
 
@@ -96,6 +95,10 @@ class App extends Component {
     this.setState({ d_brightness: value });
   };
 
+  changeBlur = value => {
+    this.setState({ d_blur: value });
+  };
+
   resetDisplaySettings = () => {
     this.setState({ d_hue: 0, d_saturation: 100, d_brightness: 100 });
   };
@@ -121,7 +124,19 @@ class App extends Component {
   };
 
   handleMainWindowClose = () => {
-    this.setState({ isClosed: true });
+    const powerDown = () => this.setState({ isClosed: true });
+    const windowText = "Quit NC News?";
+    let errorMsg = "Are you sure you want to quit NC News?";
+    const okDialog = () => {
+      powerDown();
+    };
+    const cancelDialog = () => {
+      this.closeDialog();
+    };
+    const dialogClose = () => {
+      this.closeDialog();
+    };
+    this.throwDialog(windowText, errorMsg, okDialog, cancelDialog, dialogClose);
   };
 
   renderMasterWindow() {
@@ -175,9 +190,11 @@ class App extends Component {
                   changeHue={this.changeHue}
                   changeSaturation={this.changeSaturation}
                   changeBrightness={this.changeBrightness}
+                  changeBlur={this.changeBlur}
                   d_hue={d_hue}
                   d_saturation={d_saturation}
                   d_brightness={d_brightness}
+                  d_blur={d_blur}
                   resetDisplaySettings={this.resetDisplaySettings}
                   togglePostEffects={this.togglePostEffects}
                   throwDialog={this.throwDialog}

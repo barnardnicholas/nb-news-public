@@ -23,6 +23,12 @@ class Options extends Component {
     changeBrightness(value);
   };
 
+  handleChangeBlur = event => {
+    const { changeBlur } = this.props;
+    const { value } = event.target;
+    changeBlur(value);
+  };
+
   handleResetDisplay = () => {
     const { resetDisplaySettings } = this.props;
     resetDisplaySettings();
@@ -55,7 +61,7 @@ class Options extends Component {
   };
 
   render() {
-    const { d_hue, d_saturation, d_brightness } = this.props;
+    const { d_hue, d_saturation, d_brightness, d_blur } = this.props;
     const { usernameInput } = this.state;
 
     return (
@@ -63,6 +69,7 @@ class Options extends Component {
         <h3>Options</h3>
         <div id="optionssection">
           <h4>Display Settings</h4>
+          <br />
           <label>
             {`Hue: ${d_hue}deg`}
             <div id="slider">
@@ -104,8 +111,25 @@ class Options extends Component {
           <br />
           <button onClick={this.handleResetDisplay}>Default Settings</button>
           <br />
+          <br />
+          <h4>Post Effects</h4>
+          <br />
+          <label>
+            {`Fuzziness: ${d_blur}px`}
+            <div id="slider">
+              <input
+                type="range"
+                min="0"
+                max="1.5"
+                step="0.25"
+                value={d_blur}
+                onChange={this.handleChangeBlur}
+              ></input>
+            </div>
+          </label>
+          <br />
           <button onClick={this.handleTogglePostEffects}>
-            Toggle Post Effects
+            Toggle Screen Flicker
           </button>
         </div>
         <div id="optionssection">
