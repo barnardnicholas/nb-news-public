@@ -5,6 +5,7 @@ import * as utils from "./utils";
 import CommentsList from "./CommentsList";
 import VotesBar from "./VotesBar";
 import { avatarImages } from "./avatar-lookup";
+import ErrorPage from "./ErrorPage";
 
 class SingleArticle extends Component {
   state = {
@@ -15,7 +16,8 @@ class SingleArticle extends Component {
     topic: null,
     created_at: null,
     article_id: null,
-    userHasVoted: false
+    userHasVoted: false,
+    hasError: false
   };
 
   componentDidMount() {
@@ -47,7 +49,8 @@ class SingleArticle extends Component {
             created_at,
             article_id,
             author: name,
-            username
+            username,
+            hasError: false
           });
         });
       })
@@ -71,6 +74,7 @@ class SingleArticle extends Component {
           cancelDialog,
           dialogClose
         );
+        this.setState({ hasError: true });
       });
   }
 
@@ -80,7 +84,7 @@ class SingleArticle extends Component {
     api.patchArticleById(article_id, vote_inc);
   };
 
-  render() {
+  renderArticle() {
     const {
       title,
       body,
@@ -127,6 +131,20 @@ class SingleArticle extends Component {
           closeDialog={closeDialog}
         />
       </div>
+    );
+  }
+
+  renderError() {
+    return <ErrorPage />;
+  }
+
+  render() {
+    const { hasError } = this.state;
+    return (
+      <>
+        {hasError && this.renderError()}
+        {!hasError && this.renderArticle()}
+      </>
     );
   }
 }
