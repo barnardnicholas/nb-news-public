@@ -26,7 +26,7 @@ class NavBar extends Component {
         </Link>
         <Link to={`/users/${username}/articles`} className="navuserbutton">
           {username}
-          <img src={smallAvatar} alt={username} />
+          <img id="navuseravatar" src={smallAvatar} alt={username} />
         </Link>
       </nav>
     );
