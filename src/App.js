@@ -218,11 +218,14 @@ class App extends Component {
   }
 
   renderLoadScreen() {
-    return <LoadScreen finishLoading={this.finishLoading} />;
+    return (
+      <>
+        <LoadScreen finishLoading={this.finishLoading} />{" "}
+      </>
+    );
   }
 
   finishLoading = () => {
-    console.log("finishloading");
     this.setState({ isLoading: false });
   };
 
@@ -287,10 +290,12 @@ class App extends Component {
       return (
         <div className="App">
           {this.renderPostEffects()}
+          <div className="skiploading" onClick={this.finishLoading}></div>
           <div id="prompt">
             <LoadScreen
               style={masterStyling}
               finishLoading={this.finishLoading}
+              id="loadscreen"
             />
           </div>
         </div>

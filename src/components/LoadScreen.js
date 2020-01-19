@@ -70,6 +70,7 @@ class LoadScreen extends Component {
       <div>
         <p>-----##### TIBSOFT DISK OPERATING SYSTEM #####-----</p>
         <p>{`Loading from network...${spinner[spinnerPhase]}`}</p>
+        <p>[Click or tap to skip load sequence]</p>
         <p>{`${loadingBar} ${percentDone}%`}</p>
       </div>
     );
@@ -86,6 +87,7 @@ class LoadScreen extends Component {
       <div>
         <p>-----##### TIBSOFT DISK OPERATING SYSTEM #####-----</p>
         <p>{`Loading from network...`}</p>
+        <p>[Click or tap to skip load sequence]</p>
         <p>{`${loadingBar} ${percentDone}%`}</p>
         <p>DONE!</p>
         <BlinkingCursor style={masterStyling} />

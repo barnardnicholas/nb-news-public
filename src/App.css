@@ -120,9 +120,6 @@ h5 {
   padding: 0px;
 }
 
-p {
-}
-
 ul {
   list-style: none;
   margin: 0px;
@@ -387,6 +384,17 @@ button:hover:disabled {
   background-image: url("./assets/lines.png");
   background-size: 0.1rem 0.2rem;
   animation: flicker 0.15s infinite;
+}
+
+.skiploading {
+  pointer-events: all;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 4;
+  background-color: transparent;
 }
 
 #masterwindow {
@@ -800,6 +808,10 @@ button:hover:disabled {
 
   h4 {
     font-size: 12px;
+  }
+
+  p {
+    font-size: 10px;
   }
 
   #navbar {
