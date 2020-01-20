@@ -229,6 +229,10 @@ class App extends Component {
     this.setState({ isLoading: false });
   };
 
+  reOpen = () => {
+    this.setState({ isLoading: true, isClosed: false, hasDialog: false });
+  };
+
   renderDialog() {
     const {
       d_blur,
@@ -280,6 +284,7 @@ class App extends Component {
       return (
         <div className="App">
           {this.renderPostEffects()}
+          <div className="skiploading" onClick={this.reOpen}></div>
           <div id="prompt">
             <BlinkingCursor style={masterStyling} />
           </div>
