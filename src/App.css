@@ -475,7 +475,7 @@ button:hover:disabled {
 #navbar {
   border-style: solid;
   border-width: 2px;
-  padding: 0px 0px 8px 0px;
+  padding: 8px;
   width: 1fr;
   margin: 0px 0px 8px 0px;
   text-justify: center;
@@ -507,9 +507,9 @@ button:hover:disabled {
   color: inherit;
   display: inline-block;
   width: 200px;
-  align-self: right;
-  justify-self: center;
+  justify-self: bottom;
   text-decoration: none;
+  text-justify: bottom;
   margin: 0px 0px 0px 12px;
 }
 
@@ -549,7 +549,7 @@ button:hover:disabled {
   border-style: solid;
   border-width: 2px;
   padding: 12px;
-  margin: 0px 4px 0px 0px;
+  margin: 4px 8px 0px 0px;
   overflow: hidden;
   display: grid;
 }
@@ -752,7 +752,8 @@ button:hover:disabled {
 }
 
 #about {
-  border: 2px solid;
+  border-style: solid;
+  border-width: 2px;
   padding: 12px;
 }
 
@@ -813,7 +814,11 @@ button:hover:disabled {
   }
 
   h4 {
-    font-size: 12px;
+    font-size: 14px;
+  }
+
+  h5 {
+    font-size: 10px;
   }
 
   p {
@@ -839,16 +844,18 @@ button:hover:disabled {
 
   #main {
     min-height: 200px;
-    max-height: 400px;
+    max-height: 396px;
   }
 
   #navbar {
     height: auto;
+    padding: 8px;
   }
 
   .navbutton {
     width: 70px;
     font-family: Fipps;
+    margin: 0px;
   }
 
   #homebutton {
