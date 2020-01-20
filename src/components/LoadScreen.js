@@ -21,15 +21,15 @@ class LoadScreen extends Component {
   }
 
   advanceLoadingBar = percentDone => {
-    percentDone += 2;
+    percentDone += 4;
     let result = "";
-    for (let i = percentDone / 2; i > 0; i--) {
+    for (let i = percentDone / 4; i > 0; i--) {
       result += "#";
     }
-    for (let i = 50 - percentDone / 2; i > 0; i--) {
+    for (let i = 25 - percentDone / 4; i > 0; i--) {
       result += "_";
     }
-    return result;
+    return result.slice(0, 24);
   };
 
   tick = () => {
@@ -59,7 +59,7 @@ class LoadScreen extends Component {
     const { masterStyling } = this.state;
     return (
       <div>
-        <p>-----##### TIBSOFT DISK OPERATING SYSTEM #####-----</p>
+        <p>---### TIBSOFT DISK OPERATING SYSTEM ###---</p>
         <BlinkingCursor style={masterStyling} />
       </div>
     );
@@ -68,7 +68,7 @@ class LoadScreen extends Component {
     const { loadingBar, percentDone, spinner, spinnerPhase } = this.state;
     return (
       <div>
-        <p>-----##### TIBSOFT DISK OPERATING SYSTEM #####-----</p>
+        <p>---### TIBSOFT DISK OPERATING SYSTEM ###---</p>
         <p>{`Loading from network...${spinner[spinnerPhase]}`}</p>
         <p>[Click or tap to skip load sequence]</p>
         <p>{`${loadingBar} ${percentDone}%`}</p>
@@ -85,7 +85,7 @@ class LoadScreen extends Component {
     } = this.state;
     return (
       <div>
-        <p>-----##### TIBSOFT DISK OPERATING SYSTEM #####-----</p>
+        <p>---### TIBSOFT DISK OPERATING SYSTEM ###---</p>
         <p>{`Loading from network...`}</p>
         <p>[Click or tap to skip load sequence]</p>
         <p>{`${loadingBar} ${percentDone}%`}</p>
