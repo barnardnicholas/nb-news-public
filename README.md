@@ -1,88 +1,37 @@
-# Northcoders News
+# NC News
 
-> ALERT! Please **create your own empty repo** for NC News to avoid later issues with deploying and git histories. You should then use `create-react-app` and set the git remote using `git remote set-url origin your.new.git.url/here`.
+### A responsive web app demonstration by Nick Barnard
 
-Northcoders News is a social news aggregation, web content rating, and discussion website. Think something along the lines of [Reddit](https://www.reddit.com/).
+> PLEASE NOTE: NC News is not a real news site, but a demonstration of front-end web development, written from scratch over one week. The articles, users and comments featured here are placeholders only and do not represent the thoughts or feelings of actual human users. For now, NC News is optimised for Google Chrome browser, and some features may not work well on other browsers. This is purely due to the time constraints of the project, and this may be updated in the near future.
 
-Northcoders News has articles which are divided into topics. Each article has user curated ratings and can be up or down voted using the API. Users can also add comments about an article. Comments can also be up or down voted. A user can add comments and remove any comments which they have added.
+## Description
 
-This review sprint should consolidate your understanding of making a [C.R.U.D](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) application from a front end perspective.
+Welcome to NC News! I tried to design the site to capture the spirit of old IBM terminal interfaces in the early 1980s. Please take a few minutes navigate around the site and explore. If you find the interface uncomfortable or less-than ideal in some way, simply navigate to the Options page, where you will find controls to alter the look of the site and disable some of the video effects.
 
- _Note: You will come across a Cross-Origin-Resource-Sharing error once you start fetching data from your back-end API, which will need a slight update: [Express CORS Middleware](https://expressjs.com/en/resources/middleware/cors.html)_
+## Instructions
 
-## Objectives
+Please feel free to clone the project from GitHub to your local machine and test the functionality locally. Ensure that git is installed on your computer, navigate to the folder where you would like the project folder to be placed and type the following command into Terminal:
 
-1. Pull together all the front-end skills, technologies and best practises you have learnt.
-2. Make asynchronous API calls to your own server.
-3. Use HTTP request types to interact with your backend, and HTTP response codes to update your UI accordingly.
+```
+git clone https://github.com/barnardnicholas/nb-news-public.git
+```
 
-## What to do
+Then navigate into the 'nb-news-public' folder and run the commands:
 
-Use the generic react-project-checklist as a guide to setting up your app. Here are some project-specific things to bear in mind:
+```
+npm install
+npm start
+```
 
-1. Have a look at your API endpoints and at Reddit. Think about what data you have available, and how you will structure your application. What routes will your application have? What articles will you choose to display on the main page?
-2. Think how you will isolate the concerns of your project - the structure of your components, the sourcing of your data, the styling.
-3. What sort of routing does Reddit use? What sort of specificity do you think you will need? Remember, your urls don't have to directly correspond to your api endpoints, but they will provide some guidance.
-4. Think about what data each component will need. Where will it come from? When should components find their own data and when should they load it themselves? Focus on loading a list of articles for your front page first of all.
-5. Consider more complex functionality: how do you want to allow changes to your database? Think about how you will attribute users to posted comments etc. How will you know what comments/articles a user should be allowed to delete? How about sorting data, or paginating responses? A good starting point would be to pick a single user and assuming that all new articles and comments are being posted by that user.
-6. How are you going to make this a fluid and engaging experience for users, so they want to come back for more?
+The local react server should start and the project should appear in your browser. Feel free to browse the code, starting with src/components/app.js
 
-## 'Must Have' User Stories
+## Using the Backend
 
-You should implement the following functionality in your website. Check the lecture calendar to see when any new topics will be covered, but feel free to have a go at them beforehand as well!
+The web app you see here was designed to make use of the NC News Backend server, which I also wrote from scratch in a week, although not the same week! If you'd like to try the public-facing API for the backend yourself, go to [https://be-nb-news.herokuapp.com/api](https://be-nb-news.herokuapp.com/api) to see a list of endpoints. You can also check out the github page at [https://github.com/barnardnicholas/be-nc-news.git](https://github.com/barnardnicholas/be-nc-news.git)
 
-**As a user, I should be able to...**
+## Acknowledgements
 
-1. view a list of all articles
-2. view a page for each topic with a list of related articles.
-3. view an individual article.
-4. view an individual article's comments.
-5. sort articles by:
-   - date created
-   - comment_count
-   - votes
-6. post a new comment to an existing article (as a default logged in user. e.g. 'jessjelly').
-7. delete my own comments (as a default logged in user. e.g. 'jessjelly').
-8. vote on an article and immediately see the change.
-9. vote on a comment and immediately see the change.
+Many thanks to the staff and students at Northcoders Manchester for their support and companionship during the construction of this project.
 
-**As a hiring partner, I should be able to...**
-
-10. use the site on my mobile without sacrificing style or functionality (as I may not have my laptop nearby).
-11. follow the readme instructions to easily run the project locally.
-12. find a link to the hosted version of the project in the readme.
-13. find a link to the back-end repository of the project in the readme.
-14. find a link to the hosted version of the back-end project in the readme.
-
-**Error-handling: As a user, I should...**
-
-15. show a 404 error if I go on a non-existent path/a path for a non-existent article/topic.
-16. show a 400 error if I go on a invalid article ID.
-17. not be allowed to post a comment if I have not filled in all of the form boxes.
-
-## _If time, and if you have implemented it in your back-end API..._
-
-**As a user, I should be able to...**
-
-18. navigate over pages of articles (e.g. using pagination or infinite scroll).
-19. navigate over pages of comments (e.g. using pagination or infinite scroll).
-20. view a list of all articles written by a specific user.
-21. post a new article to an existing topic.
-22. delete my own articles.
-
-## Deployment
-
-There are many ways to deploy a React application. The `create-react-app` docs go into detail on some of the options: https://facebook.github.io/create-react-app/docs/deployment
-
-We recommend Netlify. Check out the `netlify-deployment.md` file in this repo for a step-by-step guide!
-
-**Before moving onto the 'if time' and 'extra credit' sections, submit your code for review! Please send a link to both your GitHub project and your hosted version to the Front-End slack channel** 😀
-
-## Extra credit
-
-1. As a user, I should be able to see which users have been most active adding articles and comments
-2. As a user, I should be able to sort the users by how popular they are based on an aggregation of their article and comment vote counts
-
-## Important
-
-This sprint is among the ones we'll ask you to complete in order to put you forward for jobs. Put a little bit of love into it! :) <3
+Many thanks also to Andrew Tyler ([www.AndrewTyler.net](www.AndrewTyler.net)),
+Rob Meek ([https://fontstruct.com/fontstructions/show/1238305](https://fontstruct.com/fontstructions/show/1238305)), and the talented font creators at [pheist.net](https://https://pheist.net/), whose work you see on this page.

@@ -109,7 +109,7 @@ class ArticlesList extends Component {
     return (
       <>
         <div id="articletitle">
-          <h3>ARTICLES</h3>
+          <h3>Articles</h3>
         </div>
         {articles.length === 0 ? this.displayLoading() : this.displayList()}
       </>
