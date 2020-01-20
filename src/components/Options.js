@@ -66,7 +66,7 @@ class Options extends Component {
   };
 
   render() {
-    const { d_hue, d_saturation, d_brightness, d_blur, d_glow } = this.props;
+    const { d_hue, d_saturation, d_brightness, d_blur } = this.props;
     const { usernameInput } = this.state;
 
     return (
@@ -158,6 +158,14 @@ class Options extends Component {
         </div>
       </div>
     );
+  }
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
+  componentDidUpdate() {
+    window.scrollTo(0, 0);
   }
 }
 

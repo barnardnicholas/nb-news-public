@@ -53,7 +53,6 @@ body {
   padding: 30px;
   color: #0ee027;
   background-color: black;
-  /* text-shadow: #0ee027 0 0 0.8rem; */
   align-content: center;
   justify-content: center;
   text-align: left;
@@ -429,6 +428,9 @@ button:hover:disabled {
   background-repeat: repeat;
   background-size: 8px 8px;
   border-right: 4px solid;
+  text-overflow: hidden;
+  word-wrap: unset;
+  overflow: hidden;
 }
 
 #windowtext {
@@ -525,8 +527,9 @@ button:hover:disabled {
 
 #main {
   display: grid;
-  grid-template-columns: 150px 1fr;
-  grid-template-areas: "sidebar viewport";
+  grid-template-columns: auto;
+  grid-template-rows: 1fr 150px;
+  grid-template-areas: "viewport" "sidebar";
   grid-gap: 5px;
   padding: 0px;
   overflow-y: scroll;
@@ -780,13 +783,6 @@ button:hover:disabled {
   margin: 200px 0px 0px 0px;
 }
 
-/* Overriding sidebar to force different layout */
-#main {
-  grid-template-columns: auto;
-  grid-template-rows: 1fr 150px;
-  grid-template-areas: "viewport" "sidebar";
-}
-
 @media only screen and (max-width: 800px) {
   #root {
     width: 100%;
@@ -830,6 +826,10 @@ button:hover:disabled {
   }
 
   p {
+    font-size: 10px;
+  }
+
+  #about {
     font-size: 10px;
   }
 
@@ -906,5 +906,6 @@ button:hover:disabled {
 
   #dialogbox {
     margin: 100px 0px 0px 0px;
+    height: 140px;
   }
 }

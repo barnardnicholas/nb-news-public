@@ -22,7 +22,7 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    windowText: "NC News v0.1",
+    windowText: "NC News Network Terminal v1.0",
     isLoading: true,
     isClosed: false,
     hasDialog: false,
