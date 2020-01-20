@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ArticleCard from "./ArticleCard";
 import Loading from "./Loading";
-import { avatarImages } from "./avatar-lookup";
+import { avatarImages } from "../utils/avatar-lookup";
 
 class ArticlesList extends Component {
   state = {

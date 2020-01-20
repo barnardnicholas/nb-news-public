@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import TopicsList from "./TopicsList";
-import * as dummyData from "./dummy-data";
+import * as dummyData from "../utils/dummy-data";
 
 class TopicsHome extends Component {
   state = { topics: [] };

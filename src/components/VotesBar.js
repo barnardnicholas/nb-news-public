@@ -34,17 +34,17 @@ class VotesBar extends Component {
   }
 
   handleClickUp = () => {
-    const { id, handleVote, userVotes } = this.props;
+    const { id, handleVote } = this.props;
     handleVote(id, 1);
   };
 
   handleClickDown = () => {
-    const { id, handleVote, userVotes } = this.props;
+    const { id, handleVote } = this.props;
     handleVote(id, -1);
   };
 
   render() {
-    const { id, votes, handleVote, userVotes } = this.props;
+    const { votes } = this.props;
     const { voteUpDisabled, voteDownDisabled } = this.state;
     return (
       <div id="votesbar">

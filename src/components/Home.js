@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import * as api from "./api";
+import * as api from "../utils/api";
 import ArticleCard from "./ArticleCard";
 import ncExtraNarrowHeader from "../assets/ncextranarrowheader.png";
 

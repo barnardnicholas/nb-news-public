@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CommentCard from "./CommentCard";
-import * as api from "./api";
+import * as api from "../utils/api";
 
 class CommentsList extends Component {
   state = {

@@ -39,6 +39,18 @@ const About = () => {
         your browser. Feel free to browse the code, starting with
         src/components/app.js
       </p>
+      <h4>User functionality</h4>
+      <p>
+        Unfortunately, NC News does not currently support the creating of secure
+        user accounts. The user functionality you see here is a slightly hacky
+        demonstration of how it might look, were such a feature to implemented.
+        By default you will be logged in as the user 'weegembump'. A user icon
+        on the nav bar will remind you of your current user. As weegembump, you
+        can post comments and likes, and also delete your own comments. If you
+        wish to switch user, simply go to the options page and type the name of
+        another user into the text box under 'User Settings'. Try 'jessjelly' or
+        'grumpy19'.
+      </p>
       <h4>Using the Backend</h4>
       <p>
         The web app you see here was designed to make use of the NC News Backend

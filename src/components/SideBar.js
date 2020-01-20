@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AdCard from "./AdCard";
-import * as dummyData from "./dummy-data";
+import * as dummyData from "../utils/dummy-data";
 
 class SideBar extends Component {
   state = {

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import * as api from "./api";
-import * as utils from "./utils";
+import * as api from "../utils/api";
+import * as utils from "../utils/utils";
 import CommentsList from "./CommentsList";
 import VotesBar from "./VotesBar";
-import { avatarImages } from "./avatar-lookup";
+import { avatarImages } from "../utils/avatar-lookup";
 import ErrorPage from "./ErrorPage";
 
 class SingleArticle extends Component {
@@ -36,7 +36,7 @@ class SingleArticle extends Component {
           article_id
         } = article;
         return api.getUserByUserName(author).then(user => {
-          const { username, avatar_url } = user;
+          const { username } = user;
           let { name } = user;
           if (username === loggedInUser.username) {
             name = "You";

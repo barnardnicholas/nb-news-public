@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
-import * as utils from "./utils";
+import * as utils from "../utils/utils";
 
 const ArticleCard = props => {
   const { loggedInUser } = props;

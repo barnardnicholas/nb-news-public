@@ -76,13 +76,7 @@ class LoadScreen extends Component {
     );
   }
   loadingPhaseFour() {
-    const {
-      masterStyling,
-      loadingBar,
-      percentDone,
-      spinner,
-      spinnerPhase
-    } = this.state;
+    const { masterStyling, loadingBar, percentDone } = this.state;
     return (
       <div>
         <p>---### TIBSOFT DISK OPERATING SYSTEM ###---</p>

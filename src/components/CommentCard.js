@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import * as api from "./api";
+import * as api from "../utils/api";
 import VotesBar from "./VotesBar";
-import * as utils from "./utils";
+import * as utils from "../utils/utils";
 
 class CommentCard extends Component {
   state = {

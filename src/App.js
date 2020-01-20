@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
+import * as api from "./utils/api";
 import Overlay from "./components/Overlay";
 import WindowBar from "./components/WindowBar";
 import Header from "./components/Header";
@@ -13,12 +14,11 @@ import SingleArticle from "./components/SingleArticle";
 import ArticlesByTopicHome from "./components/ArticlesByTopicHome";
 import ArticlesByUserHome from "./components/ArticlesByUserHome";
 import ErrorPage from "./components/ErrorPage";
-import "./App.css";
 import Options from "./components/Options";
-import * as api from "./components/api";
 import DialogBox from "./components/DialogBox.js";
 import BlinkingCursor from "./components/BlinkingCursor";
 import LoadScreen from "./components/LoadScreen";
+import "./App.css";
 
 class App extends Component {
   state = {
@@ -269,7 +269,6 @@ class App extends Component {
     const {
       isLoading,
       isClosed,
-      hasDialog,
       d_blur,
       d_hue,
       d_saturation,
