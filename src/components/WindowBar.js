@@ -12,7 +12,7 @@ const WindowBar = ({ windowText, onClose }) => {
         <h2 id="windowtext">{windowText}</h2>
       </div>
       <button id="windowbarclosebtn" onClick={handleClose}>
-        <img src={xbutton} alt="X" width="40px" height="40px" />
+        <img src={xbutton} alt="X" width="40px" height="40px" id="xbutton" />
       </button>
     </div>
   );
