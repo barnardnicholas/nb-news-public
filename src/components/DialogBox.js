@@ -1,9 +1,13 @@
 import React from "react";
 import WindowBar from "./WindowBar";
 
-const DialogBox = props => {
-  const { windowText, msg, okDialog, cancelDialog, closeDialog } = props;
-
+const DialogBox = ({
+  windowText,
+  msg,
+  okDialog,
+  cancelDialog,
+  closeDialog
+}) => {
   const handleOK = () => {
     okDialog();
   };

@@ -5,6 +5,7 @@ const WindowBar = ({ windowText, onClose }) => {
   const handleClose = () => {
     onClose();
   };
+
   return (
     <div id="windowbar">
       <div id="windowbarcontent">

@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div>
+    <div id="articleshome">
       <h3>ABOUT NC NEWS</h3>
       <p>
         PLEASE NOTE: NC News is not a real news site, but a demonstration of

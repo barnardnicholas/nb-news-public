@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "@reach/router";
 import * as utils from "../utils/utils";
 
-const ArticleCard = props => {
-  const { loggedInUser } = props;
+const ArticleCard = ({ loggedInUser, article }) => {
   const {
     title,
     created_at,
@@ -13,8 +12,8 @@ const ArticleCard = props => {
     author,
     votes,
     comment_count
-  } = props.article;
-  let accreditedAuthor = props.article.author;
+  } = article;
+  let accreditedAuthor = article.author;
   if (author === loggedInUser.username) {
     accreditedAuthor = "You";
   }

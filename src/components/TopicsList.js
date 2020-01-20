@@ -2,9 +2,7 @@ import React from "react";
 import TopicCard from "./TopicCard";
 import Loading from "./Loading";
 
-const TopicsList = props => {
-  const { topics } = props;
-
+const TopicsList = ({ topics }) => {
   const displayLoading = () => {
     return <Loading />;
   };
