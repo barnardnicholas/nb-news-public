@@ -312,6 +312,14 @@ class App extends Component {
       </>
     );
   }
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
+  componentDidUpdate() {
+    window.scrollTo(0, 0);
+  }
 }
 
 export default App;
