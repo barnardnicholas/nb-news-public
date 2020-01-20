@@ -68,9 +68,6 @@ body {
 #root {
   width: 90%;
   height: 90%;
-  /* position: fixed; */
-  /* overflow: scroll; */
-  /* min-width: 400px; */
   margin: 0px;
 }
 
@@ -81,7 +78,6 @@ body {
 }
 
 .App {
-  /* display: flex; */
   width: 1fr;
   height: 1fr;
   padding: 0px;
@@ -541,7 +537,6 @@ button:hover:disabled {
 
 #sidebar {
   height: 1fr;
-  /* width: 1fr; */
   grid-area: sidebar;
   border-style: solid;
   border-width: 2px;
@@ -627,7 +622,6 @@ button:hover:disabled {
 
 #singlearticlebody {
   padding: 16px;
-  /* border-bottom: 2px solid; */
 }
 
 #votesbar {
@@ -761,10 +755,6 @@ button:hover:disabled {
   width: 100%;
   height: 100%;
   z-index: 3;
-  /* display: grid;
-  grid-template-columns: 1fr 300px 1fr;
-  grid-template-rows: 1fr 200px 1fr;
-  grid-template-areas: "blank blank blank" "blank dialog blank" "blank blank blank"; */
   text-align: center;
   text-justify: center;
 }
