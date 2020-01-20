@@ -41,6 +41,7 @@ class App extends Component {
     d_saturation: 100,
     d_brightness: 100,
     d_blur: 0.75,
+    d_glow: true,
     d_postEffects: true
   };
 
@@ -108,6 +109,11 @@ class App extends Component {
     this.setState({ d_postEffects: !d_postEffects });
   };
 
+  toggleGlow = () => {
+    const { d_glow } = this.state;
+    this.setState({ d_glow: !d_glow });
+  };
+
   throwDialog = (windowText, msg, onOK, onCancel, onClose) => {
     this.setState({
       hasDialog: true,
@@ -141,10 +147,18 @@ class App extends Component {
 
   renderMasterWindow() {
     const { loggedInUser, windowText } = this.state;
-    const { d_hue, d_saturation, d_brightness, d_blur, hasDialog } = this.state;
+    const {
+      d_hue,
+      d_saturation,
+      d_brightness,
+      d_blur,
+      d_glow,
+      hasDialog
+    } = this.state;
     const masterStyling = {
       filter: `blur(${d_blur}px) hue-rotate(${d_hue}deg) grayscale(${100 -
-        d_saturation}%) brightness(${d_brightness}%)`
+        d_saturation}%) brightness(${d_brightness}%)`,
+      textShadow: d_glow ? "#0ee027 0 0 0.8rem" : "#0ee027 0 0 0rem"
     };
     return (
       <div id="masterwindow" style={masterStyling}>
@@ -195,8 +209,10 @@ class App extends Component {
                   d_saturation={d_saturation}
                   d_brightness={d_brightness}
                   d_blur={d_blur}
+                  d_glow={d_glow}
                   resetDisplaySettings={this.resetDisplaySettings}
                   togglePostEffects={this.togglePostEffects}
+                  toggleGlow={this.toggleGlow}
                   throwDialog={this.throwDialog}
                   closeDialog={this.closeDialog}
                 />

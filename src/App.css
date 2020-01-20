@@ -53,7 +53,7 @@ body {
   padding: 30px;
   color: #0ee027;
   background-color: black;
-  text-shadow: #0ee027 0 0 0.8rem;
+  /* text-shadow: #0ee027 0 0 0.8rem; */
   align-content: center;
   justify-content: center;
   text-align: left;
@@ -751,6 +751,11 @@ button:hover:disabled {
   justify-content: center;
 }
 
+#about {
+  border: 2px solid;
+  padding: 12px;
+}
+
 #dialogoverlay {
   position: fixed;
   background-color: transparent;
@@ -803,12 +808,33 @@ button:hover:disabled {
     font-size: 40px;
   }
 
+  h3 {
+    font-size: 16px;
+  }
+
   h4 {
     font-size: 12px;
   }
 
   p {
     font-size: 10px;
+  }
+
+  button {
+    font-size: 12px;
+  }
+
+  input[type="text"] {
+    margin: 2px;
+  }
+
+  label {
+    font-size: 10px;
+  }
+
+  #logo {
+    max-height: 90%;
+    max-width: 90%;
   }
 
   #main {

@@ -39,6 +39,11 @@ class Options extends Component {
     togglePostEffects();
   };
 
+  handleToggleGlow = () => {
+    const { toggleGlow } = this.props;
+    toggleGlow();
+  };
+
   handleUsernameInput = event => {
     const { value } = event.target;
     this.setState({ usernameInput: value });
@@ -61,12 +66,12 @@ class Options extends Component {
   };
 
   render() {
-    const { d_hue, d_saturation, d_brightness, d_blur } = this.props;
+    const { d_hue, d_saturation, d_brightness, d_blur, d_glow } = this.props;
     const { usernameInput } = this.state;
 
     return (
       <div id="options">
-        <h3>Options</h3>
+        <h3 id="articletitle">Options</h3>
         <div id="optionssection">
           <h4>Display Settings</h4>
           <br />
@@ -127,6 +132,8 @@ class Options extends Component {
               ></input>
             </div>
           </label>
+          <br />
+          <button onClick={this.handleToggleGlow}>Toggle CRT Glow</button>
           <br />
           <button onClick={this.handleTogglePostEffects}>
             Toggle Screen Flicker
