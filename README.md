@@ -2,7 +2,7 @@
 
 ### A responsive web app demonstration by Nick Barnard
 
-> PLEASE NOTE: NC News is not a real news site, but a demonstration of front-end web development, written from scratch over one week. The articles, users and comments featured here are placeholders only and do not represent the thoughts or feelings of actual human users. For now, NC News is optimised for Google Chrome browser, and some features may not work well on other browsers. This is purely due to the time constraints of the project, and this may be updated in the near future.
+> PLEASE NOTE: NC News is not a real news site, but a demonstration of front-end web development, written from scratch over one week. The articles, users and comments featured here are placeholders only and do not necessarily represent the thoughts or feelings of actual human users. For now, NC News is optimised for Google Chrome browser, and some features may not work well on other browsers. This is purely due to the time constraints of the project, and this may be updated in the near future.
 
 Welcome to NC News! I tried to design the site to capture the spirit of old IBM terminal interfaces in the early 1980s. Please take a few minutes navigate around the site and explore. If you find the look of the interface uncomfortable or less-than ideal in some way, simply navigate to the Options page, where you will find controls to alter the look of the site and disable some of the video effects.
 
